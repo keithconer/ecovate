@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="icon" href="images/icons8-garden-gloves-70.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+
+<!-- Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+
+
+    <title>Ecovate</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/icons8-garden-gloves-70.png" alt="Logo" style="width: 50px; height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="tech.html">Technologies</a></li>
+                            <li><a class="dropdown-item" href="ec.html">Ecolife</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="abtdv.html">About Devs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#act">Progress</a></li>
+                    <li class="nav-item"><a class="nav-link highlighted" href="ft.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+                </ul>
+                <button class="btn btn-dark ms-3 d-none d-lg-block" type="button" id="themeToggle" aria-label="Toggle theme">
+                    <span id="sunEmoji" class="d-none">🌞</span>
+                    <span id="moonEmoji">🌜</span>
+                </button>
+                <a href="login.html" class="btn btn-primary8 ms-3" id="loginButton">
+                    <i class="bi bi-person"></i> Login
+                </a>
+                
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    <section class="hero text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Our goal is to innovate technologies and promote <span class="highlight">green</span> environment</h1>
+            <p class="hero-text lead">Ecovate promotes energy-efficient gadgets & eco-friendly materials.</p>
+            <a href="#ts" class="btn btn-primary btn-lg">
+                <i class="fas fa-arrow-right"></i> Learn More
+            </a>
+            <a href="#" class="btn btn-primary2 btn-lg" data-bs-toggle="modal" data-bs-target="#joinCommunityModal">
+                <i class="fas fa-bell"></i> Join the Community
+            </a>
+            
+            <div class="purchase-info mt-4">
+                <img src="images/icons8-team-94.png" alt="User" width="30" height="30">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <span class="ms-2">300K+ Growing Community</span>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- Join Community Modal -->
+<div class="modal fade" id="joinCommunityModal" tabindex="-1" aria-labelledby="joinCommunityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="joinCommunityModalLabel">Join the Community</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="joinCommunityForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="purpose" class="form-label">Purpose in Joining</label>
+                        <textarea class="form-control" id="purpose" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="focus" class="form-label">Focus Area</label>
+                        <select class="form-select" id="focus" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="treePlanting">Tree Planting Community</option>
+                            <option value="plasticRecycling">Plastic Recycling Materials Community</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="terms" required>
+                            <label class="form-check-label" for="terms">
+                                I agree to the terms and conditions. This participation is voluntary.
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="confirmJoin">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Welcome Modal -->
+<div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="welcomeModalLabel">Welcome to the Ecovate Community</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Welcome to the Ecovate Community, where technology meets the green. Let's innovate and save the world together.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="okButton">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+    <button id="scrollToTopBtn" class="btn btn-primary btn-lg rounded-circle">
+        <span class="visually-hidden">Scroll to top</span>
+        <i class="bi bi-arrow-up"></i> <!-- Bootstrap Icons arrow-up icon -->
+    </button>
+    
+
+    <section class="community-section" id="communitySection">
+        <div class="container">
+            <div class="section-title mb-5">
+                How we help the Community
+            </div>
+            <div class="row">
+                <!-- Service Box 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="service-card" style="background-image: url('images/woman-making-selfie-park.jpg');">
+                        <div class="overlay"></div>
+                        <div class="content">
+                            <div class="icon-container">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
+                            <h4>Provides new technologies</h4>
+                            <p>Integrate new technologies to drive innovation and stay at the forefront of our industry.</p>
+                            <a href="tech.html" class="btn btn-primary4">
+                                Check it out <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service Box 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="service-card" style="background-image: url('images/side-view-woman-with-turtle-bag-thermos.jpg');">
+                        <div class="overlay"></div>
+                        <div class="content">
+                            <div class="icon-container">
+                                <i class="bi bi-sun"></i>
+                            </div>
+                            <h4>Promotes Eco-Friendly products</h4>
+                            <p>Encouraging sustainable practices and offering a range of environmentally responsible goods.</p>
+                            <a href="ec.html" class="btn btn-primary4">
+                                Check it out <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service Box 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="service-card" style="background-image: url('images/scholarships.jpg');">
+                        <div class="overlay"></div>
+                        <div class="content">
+                            <div class="icon-container">
+                                <i class="bi bi-book"></i>
+                            </div>
+                            <h4>Offers Scholarships</h4>
+                            <p>To support educational advancement and provide opportunities for students to achieve their academic goals.</p>
+                            <a href="#" class="btn btn-primary5" data-bs-toggle="modal" data-bs-target="#applicationModal">
+                                Apply Scholarship <i class="fas fa-table"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="applicationModal" tabindex="-1" aria-labelledby="applicationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="applicationModalLabel">Scholarship Application</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="applicationForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="yearLevel" class="form-label">Year Level</label>
+                            <input type="text" class="form-control" id="yearLevel" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="income" class="form-label">Average Family Income</label>
+                            <select class="form-select" id="income" required>
+                                <option value="" disabled selected>Select your family income range</option>
+                                <option value="below5k">Below 5k a month</option>
+                                <option value="below10k">Below 10k a month</option>
+                                <option value="above15k">Above 15k a month</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Do you belong to a farmer's family?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="farmerFamily" id="yes" value="yes" required>
+                                <label class="form-check-label" for="yes">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="farmerFamily" id="no" value="no" required>
+                                <label class="form-check-label" for="no">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="confirmApplication">Confirm Application</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Modal: Confirmation Message -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Application Submitted</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Your request has been sent and will be reviewed soon. Also we recommend you submitting application for scholarship after the countdown.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="redirectButton">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+   
+
+
+
+    <div id="ts">
+    <section class="zero-section">
+        <h1>Trees Planted</h1>
+        <div id="counter" class="counter">0</div>
+    <section class="feature-section">
+        <div class="container">
+          
+            <div class="row">
+                <div class="col-md-4 feature-card animate-on-scroll">
+                    <i class="bi bi-phone"></i>
+                    <h3>12M</h3>
+                    <p>Ecovate has 12 million registered users. It’s one of the Philippines’ largest science-based environmental movements</p>
+                </div>
+                <div class="col-md-4 feature-card animate-on-scroll">
+                    <i class="bi bi-trophy"></i>
+                    <h3>100,000</h3>
+                    <p>Our vibrant community consists passionate supporters who actively contribute</p>
+                </div>
+                <div class="col-md-4 feature-card animate-on-scroll">
+                    <i class="bi bi-eye"></i>
+                    <h3>50,000</h3>
+                    <p>Supported farmers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
+<section class="ero-section">
+    <h1>Recycled Plastics</h1>
+    <div id="plasticCounter" class="counter">0</div>
+    <section class="feature-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 feature-card animate-on-scroll">
+                    <i class="bi bi-house"></i>
+                    <h3>20B</h3>
+                    <p>A tremendous amount of recycled plastics every year</p>
+                </div>
+                <div class="col-md-4 feature-card animate-on-scroll">
+                    <i class="bi bi-gear"></i>
+                    <h3>100+</h3>
+                    <p>Organizations who actively who participate & support this advocacy for a green environment</p>
+                </div>
+                <div class="col-md-4 feature-card animate-on-scroll">
+                    <i class="bi bi-pen"></i>
+                    <h3>70,500</h3>
+                    <p>Plastics that been converted into a product and help public schools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section class="partners-section">
+    <div class="partners-wrapper">
+        <div class="partners-content">
+            <h5>Our significant partners in the industry for several years.</h5>
+            <img src="images/realesttech-removebg-preview.png" alt="Partner 1">
+            <img src="images/icons8-rlsttechnology-50.png" alt="Partner 1">
+            <img src="images/microsolv-removebg-preview.png" alt="Partner 2">
+            <img src="images/icons8-crown-50.png" alt="Partner 3">
+            <img src="images/Gadjets-removebg-preview.png" alt="Partner 3">
+            <img src="images/icons8-gadgets-50.png" alt="Partner 2">
+            <img src="images/Flower-removebg-preview.png" alt="Partner 3">
+            <img src="images/icons8-flower-50.png" alt="Partner 2">
+            <img src="images/ecobottle-removebg-preview.png" alt="Partner 3">
+            <img src="images/icons8-plastic-bottle-50.png" alt="Partner 2">
+            <!-- Add more logos here -->
+        </div>
+    </div>
+</section>
+
+
+
+
+<br><br><br><br>
+<div id="act"></div>
+<h2 class="text-center mb-4">Activity Trajectory</h2>
+<div class="containerCh">
+    <div class="chart-container">
+        <canvas id="recycledPlasticChart"></canvas>
+        <p>Recycled Plastic</p>
+    </div>
+    <div class="chart-container">
+        <canvas id="plantedTreesChart"></canvas>
+        <p>Planted Trees</p>
+    </div>
+
+    <div id="com"></div>
+</div>
+
+<br><br><br><br>
+
+<div class="pie-chart-container">
+    <h2 class="text-center mb-4">Community</h2>
+    <canvas id="countryDistributionChart"></canvas>
+    <p>Real time Growing Community WorldWide</p>
+</div>
+
+
+
+<br><br><br><br>
+<br><br><br><br>
+
+<!-- Cart Icon with Notification -->
+<div id="cartIcon" class="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
+    <i class="fas fa-shopping-cart"></i>
+    <div id="cartNotification" class="cart-notification">0</div>
+  </div>
+  
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Cart Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cartItems">
+            <!-- Cart items will be dynamically inserted here -->
+          </div>
+          <h4>Total: $<span id="cartTotal">0.00</span></h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmModal">Confirm Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Order Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Your order has been placed. It will be delivered soon!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="redirectToIndex()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Scholarship Section with Countdown -->
+<section id="scholarshipSection" class="text-center text-light py-5">
+    <div class="container">
+        <h2 class="display-4 mb-4">2025 Application for Scholarship Countdown</h2>
+       
+        <div id="countdown" class="display-3 mb-4"></div>
+        <p class="lead mb-4">We're providing full and partial scholarships for the students in need!</p>
+        <!-- Enrollees Overview Section -->
+    
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 enrollee-card animate-on-scroll">
+                        <i class="bi bi-person-check"></i>
+                        <h3>1,200</h3>
+                        <p>Students have been accepted for full scholarships, which will cover their entire tuition fees and provide additional support for educational materials and living expenses throughout their studies.</p>
+                    </div>
+                    <div class="col-md-4 enrollee-card animate-on-scroll">
+                        <i class="bi bi-person-plus"></i>
+                        <h3>500</h3>
+                        <p>Students have been accepted for partial scholarships, which will help cover a portion of their tuition fees and may include additional financial support for books and other academic-related expenses.</p>
+                    </div>
+                    <div class="col-md-4 enrollee-card animate-on-scroll">
+                        <i class="bi bi-people"></i>
+                        <h3>200</h3>
+                        <p>Additional spots are available for next year’s scholarship program, offering more opportunities for students to receive financial aid and support in their educational pursuits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+  <footer class="footer bg-dark text-light py-4">
+    <div class="container d-flex flex-column align-items-center">
+        <div class="d-flex align-items-center mb-2">
+            <a class="navbar-brand me-3" href="index.html">
+                <img src="images/icons8-garden-gloves-70.png" alt="Logo">
+            </a>
+            <div class="tagline text-center">
+                Our goal is to innovate technologies and promote green environment.
+            </div>
+        </div>
+        <p class="text-center mb-0">© 2024 Ecovate. All rights reserved.</p>
+    </div>
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
+
+
+
+
+   
+
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+   
+   
+
+
+   
+    <!-- Bootstrap JS and dependencies -->
+    <script>
+      const themeToggleButton = document.getElementById('themeToggle');
+const body = document.body;
+const navbar = document.getElementById('navbar');
+const communitySection = document.getElementById('communitySection');
+const sunEmoji = document.getElementById('sunEmoji');
+const moonEmoji = document.getElementById('moonEmoji');
+
+themeToggleButton.addEventListener('click', () => {
+    body.classList.toggle('bg-dark');
+    body.classList.toggle('text-light');
+    navbar.classList.toggle('bg-dark');
+    navbar.classList.toggle('navbar-dark');
+    navbar.classList.toggle('bg-light');
+    navbar.classList.toggle('navbar-light');
+    communitySection.classList.toggle('bg-dark');
+    communitySection.classList.toggle('text-light');
+    sunEmoji.classList.toggle('d-none');
+    moonEmoji.classList.toggle('d-none');
+});
+
+// Intersection Observer for service boxes
+document.addEventListener('DOMContentLoaded', () => {
+    const serviceBoxes = document.querySelectorAll('.service-card');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    serviceBoxes.forEach(box => {
+        observer.observe(box);
+    });
+});
+
+// Scroll animations
+window.addEventListener('scroll', function() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(element => {
+        const position = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (position < windowHeight - 100) {
+            element.classList.add('visible');
+        }
+    });
+});
+
+// Animate counter
+function animateCounter(element, endValue, duration) {
+    let startValue = 0;
+    const stepTime = Math.abs(Math.floor(duration / endValue));
+    let timer = setInterval(() => {
+        startValue += 150;
+        element.textContent = startValue.toLocaleString(); // Adds comma for readability
+        if (startValue >= endValue) {
+            clearInterval(timer);
+            element.textContent = endValue.toLocaleString(); // Ensures it ends exactly at endValue
+        }
+    }, stepTime);
+}
+
+// Call animateCounter function
+window.addEventListener('DOMContentLoaded', (event) => {
+    const treesCounterElement = document.getElementById('counter');
+    const plasticCounterElement = document.getElementById('plasticCounter');
+    animateCounter(treesCounterElement, 318645, 2000); // Adjusted duration to 2000ms (2 seconds)
+    animateCounter(plasticCounterElement, 503210, 2000); // Adjusted duration to 2000ms (2 seconds)
+});
+
+
+
+document.getElementById('confirmApplication').addEventListener('click', function() {
+    var applicationModal = new bootstrap.Modal(document.getElementById('applicationModal'));
+    applicationModal.hide();
+    
+    var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+    confirmationModal.show();
+});
+
+// Redirect button in confirmation modal
+document.getElementById('redirectButton').addEventListener('click', function() {
+    var confirmationModal = bootstrap.Modal.getInstance(document.getElementById('confirmationModal')); // Corrected method to get modal instance
+    confirmationModal.hide();
+    window.location.href = 'index.html';
+});
+
+
+
+
+
+// Confirm join and show welcome modal
+document.getElementById('confirmJoin').addEventListener('click', function() {
+    var form = document.getElementById('joinCommunityForm');
+    if (form.checkValidity()) {
+        var joinCommunityModal = new bootstrap.Modal(document.getElementById('joinCommunityModal'));
+        joinCommunityModal.hide();
+        var welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+        welcomeModal.show();
+    }
+});
+
+// OK button in welcome modal
+document.getElementById('okButton').addEventListener('click', function() {
+    window.location.href = 'index.html'; // Redirects to index.html
+});
+
+// Scroll to top button
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    window.addEventListener('scroll', function () {
+        scrollToTopBtn.style.display = window.scrollY > 100 ? 'block' : 'none';
+    });
+
+    scrollToTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+
+// Cart functionality
+const cart = [];
+let cartCount = 0;
+
+function addToCart(event, button) {
+    event.preventDefault(); // Prevent default action if necessary
+
+    const packageName = button.getAttribute('data-name');
+    const packagePrice = parseFloat(button.getAttribute('data-price'));
+    const packageDetails = button.getAttribute('data-details');
+
+    const existingItemIndex = cart.findIndex(item => item.name === packageName);
+    if (existingItemIndex === -1) {
+        cart.push({ name: packageName, price: packagePrice, details: packageDetails });
+        cartCount++;
+        updateCartNotification();
+    } else {
+        console.log('Item already in cart:', packageName);
+    }
+}
+
+function updateCartNotification() {
+    const cartNotification = document.getElementById('cartNotification');
+    cartNotification.textContent = cartCount;
+    cartNotification.style.display = cartCount > 0 ? 'flex' : 'none';
+}
+
+function updateCartModal() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    let total = 0;
+
+    cartItems.innerHTML = '';
+    cart.forEach(item => {
+        cartItems.innerHTML += `<p>${item.name}: $${item.price.toFixed(2)}<br>Details: ${item.details}</p>`;
+        total += item.price;
+    });
+
+    cartTotal.textContent = total.toFixed(2);
+}
+
+function handleOrderConfirmation() {
+    const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+    confirmModal.show();
+
+    document.getElementById('confirmModal').addEventListener('hidden.bs.modal', function () {
+        window.location.href = 'index.html'; // Redirect to index.html
+    });
+}
+
+document.getElementById('cartModal').addEventListener('show.bs.modal', updateCartModal);
+document.querySelector('.btn-primary[data-bs-target="#confirmModal"]').addEventListener('click', handleOrderConfirmation);
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function (event) {
+        addToCart(event, this);
+    });
+});
+
+
+
+
+
+// Countdown to 2025
+function startCountdown() {
+    const countdownElement = document.getElementById('countdown');
+    const targetDate = new Date('2025-01-01T00:00:00');
+    
+    function updateCountdown() {
+        const now = new Date();
+        const timeDifference = targetDate - now;
+
+        if (timeDifference <= 0) {
+            countdownElement.innerHTML = 'The scholarship period has begun!';
+            return;
+        }
+
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
+}
+
+startCountdown();
+
+
+
+
+
+
+
+
+
+</script>
+    </script>
+</body>
+</html>

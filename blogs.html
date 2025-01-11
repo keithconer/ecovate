@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="icon" href="images/icons8-garden-gloves-70.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <title>Ecovate</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/icons8-garden-gloves-70.png" alt="Logo" style="width: 50px; height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="tech.html">Technologies</a></li>
+                            <li><a class="dropdown-item" href="ec.html">Ecolife</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <button class="btn btn-dark ms-3 d-none d-lg-block" type="button" id="themeToggle" aria-label="Toggle theme">
+                    <span id="sunEmoji" class="d-none">🌞</span>
+                    <span id="moonEmoji">🌜</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="blogs py-5 bg-light-green">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Latest Blogs</h2>
+            <div class="row">
+                <!-- Blog Post 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm rounded">
+                        <img src="images/innovative.jfif" class="card-img-top rounded-image" alt="Blog 1 Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Innovative Green Technologies</h5>
+                            <p class="text-muted">August 15, 2024 • 12:00 PM</p>
+                            <p class="card-text">Discover how our latest green technologies are making a difference. From energy-efficient gadgets to sustainable materials, learn about the innovations that are shaping the future.</p>
+                            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#blogModal"
+                            data-title="Innovative Green Technologies"
+                            data-image="images/innovative.jfif"
+                            data-content="Discover how our latest green technologies are making a difference. From energy-efficient gadgets to sustainable materials, learn about the innovations that are shaping the future. Our research and development teams are continuously working to push the boundaries of technology to ensure a greener planet. With new breakthroughs in sustainable energy solutions and eco-friendly products, we're leading the charge in making our world a more sustainable place for future generations."
+                            data-date-time="August 15, 2024 • 12:00 PM">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Post 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm rounded">
+                        <img src="images/ecofriendlymaterials.jpg" class="card-img-top rounded-image" alt="Blog 2 Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Eco-Friendly Materials</h5>
+                            <p class="text-muted">August 10, 2024 • 3:30 PM</p>
+                            <p class="card-text">Explore the benefits of using eco-friendly materials in everyday products. Our blog highlights the environmental impact and the advantages of making sustainable choices.</p>
+                            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#blogModal"
+                            data-title="Eco-Friendly Materials"
+                            data-image="images/ecofriendlymaterials.jpg"
+                            data-content="Explore the benefits of using eco-friendly materials in everyday products. Our blog highlights the environmental impact and the advantages of making sustainable choices. By opting for materials that are renewable, recyclable, and biodegradable, we can significantly reduce our carbon footprint and contribute to a healthier planet. Our detailed analysis covers the latest trends in eco-friendly materials and how they are transforming industries from fashion to construction."
+                            data-date-time="August 10, 2024 • 3:30 PM">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blog Post 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card border-0 shadow-sm rounded">
+                        <img src="images/greenenvironment.jfif" class="card-img-top rounded-image" alt="Blog 3 Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Community Engagement and Green Living</h5>
+                            <p class="text-muted">August 5, 2024 • 9:00 AM</p>
+                            <p class="card-text">Join us as we discuss how community engagement plays a crucial role in promoting green living. Find out how you can get involved and make a positive impact on the environment.</p>
+                            <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#blogModal"
+                            data-title="Community Engagement and Green Living"
+                            data-image="images/greenenvironment.jfif"
+                            data-content="Join us as we discuss how community engagement plays a crucial role in promoting green living. Find out how you can get involved and make a positive impact on the environment. Community efforts such as local clean-up drives, recycling programs, and green education initiatives are essential for fostering a culture of sustainability. Learn how community projects are making significant strides towards environmental conservation and how you can contribute to these efforts in your own neighborhood."
+                            data-date-time="August 5, 2024 • 9:00 AM">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="blogModalLabel">Blog Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Blog Content -->
+                    <img src="" id="modalImage" class="img-fluid rounded-image mb-3" alt="Blog Image">
+                    <p id="modalContent">Blog content goes here...</p>
+                    <p id="modalDateTime" class="text-muted">Date and Time goes here...</p>
+
+                    <!-- Comment Section -->
+                    <div class="mt-4">
+                        <h6>Leave a Comment:</h6>
+                        <form id="commentForm">
+                            <div class="mb-3">
+                                <textarea class="form-control" id="commentText" rows="3" placeholder="Write your comment here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        <div id="commentSection" class="mt-3">
+                            <!-- Comments will be added here -->
+                        </div>
+                    </div>
+
+                    <!-- Like Button -->
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-outline-success" id="likeButton">
+                            <i class="bi bi-heart"></i> Like <span id="likeCount">0</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info" id="shareButton">
+                        <i class="bi bi-share"></i> Share
+                    </button>
+                    <button type="button" class="btn btn-warning" id="copyLinkButton">
+                        <i class="bi bi-link"></i> Copy Link
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var blogModal = document.getElementById('blogModal');
+            
+            blogModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget; // Button that triggered the modal
+                var title = button.getAttribute('data-title');
+                var image = button.getAttribute('data-image');
+                var content = button.getAttribute('data-content');
+                var dateTime = button.getAttribute('data-date-time');
+
+                var modalTitle = blogModal.querySelector('.modal-title');
+                var modalImage = blogModal.querySelector('#modalImage');
+                var modalContent = blogModal.querySelector('#modalContent');
+                var modalDateTime = blogModal.querySelector('#modalDateTime');
+
+                modalTitle.textContent = title;
+                modalImage.src = image;
+                modalContent.textContent = content;
+                modalDateTime.textContent = dateTime;
+            });
+
+            // Initialize Like Button
+            var likeCount = 0;
+            var likeButton = blogModal.querySelector('#likeButton');
+            var likeCountElement = blogModal.querySelector('#likeCount');
+
+            likeButton.addEventListener('click', function () {
+                likeCount++;
+                likeCountElement.textContent = likeCount;
+            });
+
+            // Initialize Comment Form
+            var commentForm = blogModal.querySelector('#commentForm');
+            var commentSection = blogModal.querySelector('#commentSection');
+
+            commentForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent the form from submitting
+                var commentText = blogModal.querySelector('#commentText').value;
+                if (commentText.trim()) {
+                    var commentDiv = document.createElement('div');
+                    commentDiv.classList.add('border-bottom', 'pb-2', 'mb-2');
+                    commentDiv.innerHTML = '<p>' + commentText + '</p>';
+                    commentSection.appendChild(commentDiv);
+                    commentForm.reset(); // Reset the form after submission
+                }
+            });
+
+            // Share Button
+            var shareButton = blogModal.querySelector('#shareButton');
+            shareButton.addEventListener('click', function () {
+                var title = blogModal.querySelector('.modal-title').textContent;
+                var url = window.location.href;
+                navigator.share({
+                    title: title,
+                    url: url
+                }).catch(console.error);
+            });
+
+            // Copy Link Button
+            var copyLinkButton = blogModal.querySelector('#copyLinkButton');
+            copyLinkButton.addEventListener('click', function () {
+                var url = window.location.href;
+                navigator.clipboard.writeText(url).then(function () {
+                    alert('Link copied to clipboard!');
+                }).catch(function (error) {
+                    console.error('Error copying link: ', error);
+                });
+            });
+        });
+
+        const themeToggleButton = document.getElementById('themeToggle');
+        const body = document.body;
+        const navbar = document.getElementById('navbar');
+        const communitySection = document.getElementById('communitySection');
+        const sunEmoji = document.getElementById('sunEmoji');
+        const moonEmoji = document.getElementById('moonEmoji');
+
+        themeToggleButton.addEventListener('click', () => {
+            body.classList.toggle('bg-dark');
+            body.classList.toggle('text-light');
+            navbar.classList.toggle('bg-dark');
+            navbar.classList.toggle('navbar-dark');
+            navbar.classList.toggle('bg-light');
+            navbar.classList.toggle('navbar-light');
+            communitySection.classList.toggle('bg-dark');
+            communitySection.classList.toggle('text-light');
+            sunEmoji.classList.toggle('d-none');
+            moonEmoji.classList.toggle('d-none');
+        });
+    </script>
+</body>
+</html>

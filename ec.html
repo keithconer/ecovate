@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="icon" href="images/icons8-garden-gloves-70.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Ecovate</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/icons8-garden-gloves-70.png" alt="Logo" style="width: 50px; height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="tech.html">Technologies</a></li>
+                            <li><a class="dropdown-item" href="ec.html">Ecolife</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <button class="btn btn-dark ms-3 d-none d-lg-block" type="button" id="themeToggle" aria-label="Toggle theme">
+                    <span id="sunEmoji" class="d-none">🌞</span>
+                    <span id="moonEmoji">🌜</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Our Eco-Friendly</h2>
+        <ul class="nav nav-pills justify-content-center mb-4" id="productCategories">
+            <li class="nav-item">
+                <a class="nav-link active" id="plants-tab" data-bs-toggle="pill" href="#plants">Plants</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tumblers-tab" data-bs-toggle="pill" href="#tumblers">Tumblers</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!-- Plants -->
+            <div class="tab-pane fade show active" id="plants">
+                <div class="row">
+                    <!-- Product 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/Areca-palm.png" class="card-img-top" alt="Plant 1">
+                            <div class="card-body">
+                                <span class="badge bg-success position-absolute top-0 start-0 m-2">Best Seller</span>
+                                <h5 class="card-title">Areca Palm</h5>
+                                <p class="card-text">Known as a great air purifier, the Areca Palm releases a large amount of oxygen and also helps to remove toxins like formaldehyde and xylene.</p>
+                                <p class="card-text"><strong>$30</strong></p>
+                                <button class="btn btn-primary btn-lg add-to-cart" data-name="Areca Palm" data-price="30" data-details="Known as a great air purifier, the Areca Palm releases a large amount of oxygen and also helps to remove toxins like formaldehyde and xylene.">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/Boston-fern.png" class="card-img-top" alt="Plant 2">
+                            <div class="card-body">
+                                <span class="badge bg-success position-absolute top-0 start-0 m-2">Good for home</span>
+                                <h5 class="card-title">Boston Fern</h5>
+                                <p class="card-text">This lush plant is known for its ability to humidify the air and release a good amount of oxygen, making it a great addition to any indoor space.</p>
+                                <p class="card-text"><strong>$25</strong></p>
+                                <button class="btn btn-primary btn-lg add-to-cart" data-name="Boston Fern" data-price="25" data-details="This lush plant is known for its ability to humidify the air and release a good amount of oxygen, making it a great addition to any indoor space.">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/Peace-Lily.png" class="card-img-top" alt="Plant 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Peace Lily</h5>
+                                <p class="card-text">is known for its ability to produce oxygen and absorb excess moisture from the air, helping to reduce the growth of mold spores.</p>
+                                <p class="card-text"><strong>$25</strong></p>
+                                <button class="btn btn-primary btn-lg add-to-cart" data-name="Peace Lily" data-price="25" data-details="he Peace Lily is known for its ability to produce oxygen and absorb excess moisture from the air, helping to reduce the growth of mold spores.">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tumblers -->
+            <div class="tab-pane fade" id="tumblers">
+                <div class="row">
+                    <!-- Product 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/BAMBOO AND STAINLESS STEEL THERMO-CUP.png" class="card-img-top" alt="Tumbler 1">
+                            <div class="card-body">
+                                <span class="badge bg-success position-absolute top-0 start-0 m-2">Hot Offer</span>
+                                <h5 class="card-title">Bamboo and Stainless Steel Thermo-Cup</h5>
+                                <p class="card-text">Manufunctional bamboo and stanless steel thermos cup, can be used to hot and cold drinks.</p>
+                                <p class="card-text"><strong>$24.99</strong></p>
+                                <button class="btn btn-primary btn-lg add-to-cart" data-name="Bamboo and Stainless Steel Thermo-Cup" data-price="$24.99" data-details="Manufunctional bamboo and stanless steel thermos cup, can be used to hot and cold drinks.">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/INSULATED STAINLESS STEEL BAMBOO WATER BOTTLE.png" class="card-img-top" alt="Tumbler 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Insulated Stainless Steel Bamboo Water Bottle</h5>
+                                <p class="card-text">This reusable quality stainless steel water bottles has it all. It is easy to drink from with a smooth rim and tight fitting lid.</p>
+                                <p class="card-text"><strong>$40.00</strong></p>
+                                <button class="btn btn-primary btn-lg add-to-cart" data-name="Insulated Stainless Steel Bamboo Water Bottle" data-price="$40.00" data-details="This reusable quality stainless steel water bottles has it all. It is easy to drink from with a smooth rim and tight fitting lid.">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="images/DOUBLE WALL BAMBOO FLASK.png" class="card-img-top" alt="Tumbler 3">
+                            <div class="card-body">
+                                <span class="badge bg-success position-absolute top-0 start-0 m-2">Highly Recommended</span>
+                                <h5 class="card-title">Double Wall Bamboo Flask</h5>
+                                <p class="card-text">Double wall stainless steel insulating vacuum flask with bamboo outer cover and grip lid.Keep your drinks cold or hot with this insulated bottle.</p>
+                                <p class="card-text"><strong>$44.99</strong></p>
+                                <button class="btn btn-primary btn-lg add-to-cart" data-name="Double Wall Bamboo Flask" data-price="44.99" data-details="Keep your drinks cold or hot with this insulated bottle.">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer bg-dark text-light py-4">
+        <div class="container d-flex flex-column align-items-center">
+            <div class="d-flex align-items-center mb-2">
+                <a class="navbar-brand me-3" href="index.html">
+                    <img src="images/icons8-garden-gloves-70.png" alt="Logo">
+                </a>
+                <div class="tagline text-center">
+                    Our goal is to innovate technologies and promote green environment.
+                </div>
+            </div>
+            <p class="text-center mb-0">© 2024 Ecovate. All rights reserved.</p>
+        </div>
+    </footer>
+  
+    
+    
+<!-- Cart Icon with Notification -->
+<div id="cartIcon" class="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
+    <i class="fas fa-shopping-cart"></i>
+    <div id="cartNotification" class="cart-notification">0</div>
+  </div>
+  
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Cart Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cartItems">
+            <!-- Cart items will be dynamically inserted here -->
+          </div>
+          <h4>Total: $<span id="cartTotal">0.00</span></h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmModal">Confirm Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Order Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Your order has been placed. It will be delivered soon!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="redirectToIndex()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Bootstrap JS and dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+
+
+
+const themeToggleButton = document.getElementById('themeToggle');
+const body = document.body;
+const navbar = document.getElementById('navbar');
+const communitySection = document.getElementById('communitySection');
+const sunEmoji = document.getElementById('sunEmoji');
+const moonEmoji = document.getElementById('moonEmoji');
+
+themeToggleButton.addEventListener('click', () => {
+    body.classList.toggle('bg-dark');
+    body.classList.toggle('text-light');
+    navbar.classList.toggle('bg-dark');
+    navbar.classList.toggle('navbar-dark');
+    navbar.classList.toggle('bg-light');
+    navbar.classList.toggle('navbar-light');
+    communitySection.classList.toggle('bg-dark');
+    communitySection.classList.toggle('text-light');
+    sunEmoji.classList.toggle('d-none');
+    moonEmoji.classList.toggle('d-none');
+});
+
+
+
+
+
+
+
+const cart = [];
+let cartCount = 0;
+
+function addToCart(event, button) {
+    event.preventDefault(); // Prevent default action if necessary
+
+    const packageName = button.getAttribute('data-name');
+    const packagePrice = parseFloat(button.getAttribute('data-price'));
+    const packageDetails = button.getAttribute('data-details');
+
+    // Add item to cart
+    const existingItemIndex = cart.findIndex(item => item.name === packageName);
+    if (existingItemIndex === -1) {
+        cart.push({ name: packageName, price: packagePrice, details: packageDetails });
+        cartCount++;
+        updateCartNotification();
+        updateCartModal(); // Update and show the modal
+        const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+        cartModal.show(); // Show the modal
+    } else {
+        console.log('Item already in cart:', packageName);
+    }
+}
+
+function updateCartNotification() {
+    const cartNotification = document.getElementById('cartNotification');
+    cartNotification.textContent = cartCount;
+    cartNotification.style.display = cartCount > 0 ? 'flex' : 'none';
+}
+
+function updateCartModal() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    let total = 0;
+
+    cartItems.innerHTML = '';
+    cart.forEach(item => {
+        cartItems.innerHTML += `<p>${item.name}: $${item.price.toFixed(2)}<br>Details: ${item.details}</p>`;
+        total += item.price;
+    });
+
+    cartTotal.textContent = total.toFixed(2);
+}
+
+function handleOrderConfirmation() {
+    const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+    confirmModal.show();
+
+    document.getElementById('confirmModal').addEventListener('hidden.bs.modal', function () {
+        window.location.href = 'index.html'; // Redirect to index.html
+    });
+}
+
+// Event listeners
+document.getElementById('cartModal').addEventListener('show.bs.modal', updateCartModal);
+document.querySelector('.btn-primary[data-bs-target="#confirmModal"]').addEventListener('click', handleOrderConfirmation);
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function (event) {
+        addToCart(event, this);
+    });
+});
+
+
+</script>
+</body>
+</html>

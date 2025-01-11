@@ -1,0 +1,1623 @@
+/* General styles */
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+
+.registration-container {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 1;
+}
+
+.registration-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    
+}
+
+.registration-form h2 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border-radius: 30px;
+    padding-left: 40px;
+    margin-bottom: 15px;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+.form-control-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.register-btn {
+    border-radius: 30px;
+    padding: 10px 20px;
+    background-color: #1da738;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.register-btn:hover {
+    background-color: #179a28;
+}
+
+.login-link {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.login-link a {
+    color: #1da738;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Dark theme styles */
+body.bg-dark {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.bg-dark .registration-form {
+    background: rgba(33, 33, 33, 0.9);
+    color: #e0e0e0;
+}
+
+body.bg-dark .form-control {
+    background: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+body.bg-dark .form-control::placeholder {
+    color: #777;
+}
+
+body.bg-dark .form-control-icon {
+    color: #777;
+}
+
+body.bg-dark .register-btn {
+    background-color: #1da738;
+}
+
+body.bg-dark .register-btn:hover {
+    background-color: #179a28;
+}
+
+
+.login-container {
+    margin-top: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    z-index: 1;
+
+    
+}
+
+.login-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+   
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border-radius: 30px;
+    padding-left: 40px;
+    margin-bottom: 15px;
+}
+
+.form-control::placeholder {
+    color: #aaa;
+}
+
+.form-control-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.login-btn {
+    border-radius: 30px;
+    padding: 10px 20px; /* Adjusted padding for better appearance */
+    background-color: #1da738;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Makes the button occupy full width */
+    margin-top: 15px; /* Space above the button */
+}
+
+.login-btn:hover {
+    background-color: #179a28;
+}
+
+.register-link {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.register-link a {
+    color: #1da738;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Dark theme styles */
+body.bg-dark {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.bg-dark .login-form {
+    background: rgba(33, 33, 33, 0.9);
+    color: #e0e0e0;
+}
+
+body.bg-dark .form-control {
+    background: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+body.bg-dark .form-control::placeholder {
+    color: #777;
+}
+
+body.bg-dark .form-control-icon {
+    color: #777;
+}
+
+body.bg-dark .login-btn {
+    background-color: #1da738;
+}
+
+body.bg-dark .login-btn:hover {
+    background-color: #179a28;
+}
+
+
+
+
+
+
+
+.btn-primary8 {
+    background-color: #1da738;
+    color: white;
+    transition: background-color 200ms ease, color 200ms ease, border 200ms ease;
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    border-radius: 5px; /* Optional: for rounded corners */
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Center icon and text vertically */
+}
+
+.btn-primary8 i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.btn-primary8:hover {
+    background-color: transparent;
+    color: #1da738;
+    border: 1px solid #1da738;
+}
+
+
+@keyframes circlingEffect {
+    0% {
+        box-shadow: 0 0 0 0 rgba(75, 192, 192, 0.5); /* Adjusted to green color */
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(75, 192, 192, 0); /* Adjusted to green color */
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(75, 192, 192, 0); /* Adjusted to green color */
+    }
+}
+
+/* Highlighted class with circling effect */
+.highlighted {
+    position: relative;
+    font-weight: bold;
+    color: #4caf50; /* Highlight color (green) */
+    animation: circlingEffect 1.5s infinite; /* Apply the animation */
+}
+
+.highlighted::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(75, 192, 192, 0.2); /* Color of the circle (green) */
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+
+
+
+.btn-success{
+    background-color: #1da738 !important;
+}
+
+
+
+.products-section{
+    margin-bottom:20rem;
+}
+
+/* General Styles for the Scholarship Section */
+#scholarshipSection {
+    position: relative; /* Ensure the overlay is correctly positioned */
+    color: #ffffff; /* Ensure text color is white for readability */
+    text-align: center;
+}
+
+/* Dark Overlay for Background Image */
+#scholarshipSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay with 70% opacity */
+    z-index: 1; /* Ensure it sits behind the content */
+}
+
+#scholarshipSection .container {
+    position: relative; /* Ensure the content sits on top of the overlay */
+    z-index: 2;
+    padding: 5rem 0; /* Adjust padding if needed */
+}
+
+#scholarshipSection {
+    background: url('images/group2.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Countdown Timer Styling */
+#countdown {
+    font-size: 5rem; /* Make the timer bigger */
+    font-weight:800;
+    margin-bottom: 4rem;
+}
+
+#scholarshipSection h2{
+    font-weight:500;
+    font-size:3rem;
+}
+
+/* Enrollees Section Styling */
+#enrolleesSection {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay to increase contrast */
+    padding: 5rem 0;
+    color: #ffffff; /* Ensure text color is white for readability */
+}
+
+.enrollee-card {
+    margin-top:5rem;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.enrollee-card i {
+    font-size: 3rem;
+    color:white; /* Icon color */
+    margin-bottom: 15px;
+}
+
+.enrollee-card h3 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.enrollee-card p {
+    font-size: 0.9rem;
+   
+}
+
+@media (max-width: 767px) {
+    .enrollee-card {
+        padding: 15px;
+    }
+
+    .enrollee-card i {
+        font-size: 2.5rem;
+    }
+
+    .enrollee-card h3 {
+        font-size: 2rem;
+    }
+
+    .enrollee-card p {
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+.card {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Dark theme card styles */
+.bg-dark .card {
+    background-color: #343a40;
+    color: #fff;
+    border-color: #6c757d;
+}
+
+.bg-dark .text-muted{
+    color:white !important;
+}
+
+/* Button styles */
+.btn-primary, .btn-primary2, .btn-primary4, .btn-primary5 {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: #1da738;
+    border-color: #1da738;
+}
+
+.btn-primary:hover {
+    background-color: #168d2e;
+    border-color: #168d2e;
+}
+
+
+
+.footer {
+    margin-top:8rem;
+    height: auto; /* Adjust the height of the footer */
+}
+
+.footer .container {
+    max-width: 1140px; /* Adjust width as needed */
+}
+
+.footer .navbar-brand img {
+    width: 50px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.footer .tagline {
+    max-width:auto; /* Adjust the width as needed */
+    text-align: center;
+    margin-top: 5px; /* Space between logo and tagline */
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px; /* Adjust text size as needed */
+}
+
+
+.card {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Dark theme card styles */
+body.bg-dark .card {
+    background-color: #333;
+    color: #fff;
+    border-color: #444;
+}
+
+body.bg-dark .card-body {
+    color: #fff;
+}
+
+/* Ensure other elements are visible in dark mode */
+.btn-primary {
+    background-color: #007bff; /* Green button color */
+    border-color: #007bff; /* Green button border color */
+}
+
+/* Dark theme button styles */
+.bg-dark .btn-primary {
+    background-color: #007bff; /* Keep button color green */
+    border-color: #007bff; /* Keep button border color green */
+}
+
+/* Dark theme card styles */
+.bg-dark .card {
+    background-color: #343a40; /* Dark background color for cards */
+    border-color: #6c757d; /* Light grey border color for cards */
+}
+
+.bg-dark .card-title {
+    color: #ffffff; /* White text color for card titles */
+}
+
+.bg-dark .card-text {
+    color: #cfd3d9; /* Light text color for card details */
+}
+
+body.bg-dark .navbar {
+    background-color: #212529;
+    color: #fff;
+}
+
+
+
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    object-fit: contain !important; /* Ensures the image covers the area without distortion */
+}
+
+.btn-primary {
+    background-color: #1da738;
+    border-color: #1da738;
+}
+.btn-primary:hover {
+    background-color: #168d2e;
+    border-color: #168d2e;
+}
+
+
+  /* Green Theme Styles */
+  .nav-pills .nav-link.active {
+    background-color: #1da738;
+    color: #fff;
+}
+.nav-pills .nav-link {
+    color: #1da738;
+    border-radius: 0.375rem;
+}
+.nav-pills .nav-link:hover {
+    background-color: rgba(29, 167, 56, 0.1);
+}
+.nav-link {
+    font-weight: 600;
+}
+.card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.card-img-top {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+.btn-primary {
+    background-color: #1da738;
+    border-color: #1da738;
+}
+.btn-primary:hover {
+    background-color: #169e2c;
+    border-color: #169e2c;
+}
+
+
+
+
+.cart-icon {
+    position: fixed;
+    top: 80px; /* Adjust this value to move the icon down */
+    right: 20px;
+    font-size: 24px;
+    color: #fff;
+    background-color:#1da738;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    
+    .cart-notification {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color:#f39c12;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    display: none;
+    z-index: 1001;
+    }
+    
+
+
+
+
+
+header {
+    background-color: #282c34;
+    color: white;
+    padding: 20px;
+}
+
+
+.containerCh {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.chart-container {
+    width: 45%;
+}
+.pie-chart-container {
+    width: 30%; /* Make the pie chart smaller */
+    margin: auto;
+    text-align: center;
+}
+canvas {
+    width: 100% !important; /* Ensure the charts take full width */
+    height: auto !important; /* Maintain aspect ratio */
+}
+
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+    background-color: #1da738; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 0.25rem; /* Slightly rounded corners */
+    padding: 0.5rem 1rem; /* Smaller padding */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+}
+
+#scrollToTopBtn i {
+    font-size: 1.5rem; /* Icon size */
+}
+
+#scrollToTopBtn:hover {
+    background-color: #155d27; /* Darker green on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+
+
+
+/* Card styling */
+.card {
+    border: 1px solid #ddd; /* Border around the card */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+    display: flex; /* Flexbox to manage card layout */
+    flex-direction: column; /* Stack content vertically */
+    height: 100%; /* Ensure cards take full height of column */
+}
+
+/* Ensure card body and image fit within card */
+.card-img-top {
+    width: 100%; /* Ensure images fill the card */
+    height: 200px; /* Set a fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio, cover area */
+}
+
+/* Card body adjustments */
+.card-body {
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Button styling */
+.btn-lg {
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+
+
+
+/* Card hover effect */
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+
+
+
+
+/* Dark theme styles for modals */
+.bg-dark .modal-content {
+    background-color: #333; /* Darker background for modal content */
+    color: #fff; /* Light text color for readability */
+}
+
+.bg-dark .modal-header {
+    border-bottom: 1px solid #444; /* Lighter border for dark mode */
+}
+
+.bg-dark .btn-close {
+    filter: invert(1); /* Invert color for close button */
+}
+
+
+
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 1.75rem);
+}
+
+.stars{
+    transition:200ms;
+}
+
+.stars:hover{
+   transform:scale(1.2);
+}
+
+
+.dropdown-menu {
+    display: none; /* Hide dropdown by default */
+}
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+.dropdown-menu {
+    position: absolute; /* Make sure dropdown is positioned correctly */
+    margin-top: 0; /* Adjust the top margin if needed */
+}
+
+
+
+.partners-section {
+    padding: 50px 0;
+    background-color: #f8f9fa; /* Background color for the section */
+    overflow: hidden; /* Hide the overflow to keep only one row visible */
+    position: relative; /* Position relative for the wrapper */
+}
+
+.partners-section h5{
+    margin-top:0.5rem;
+}
+
+.partners-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hide overflowing logos */
+}
+
+.partners-content {
+    display: flex;
+    white-space: nowrap; /* Prevent logos from wrapping to the next line */
+    animation: scroll-left 30s linear infinite; /* Animate scrolling */
+}
+
+.partners-content img {
+    margin: 0 10px; /* Spacing between logos */
+    height: 50px; /* Adjust height as needed */
+    /* Optional: Set width to auto if you want to maintain aspect ratio */
+}
+
+/* Keyframes for continuous horizontal scroll */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%); /* Start from right outside */
+    }
+    100% {
+        transform: translateX(-100%); /* Move to left outside */
+    }
+}
+
+
+
+.ero-section {
+    position: relative; /* Ensure the section can position the overlay */
+    background: url(images/recycled.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+/* Add a pseudo-element for the overlay */
+.ero-section::before {
+    content: ""; /* Required to display the overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    z-index: 1; /* Ensure it’s behind the text but above the background image */
+}
+
+/* Ensure the text and other content stay above the overlay */
+.ero-section * {
+    margin-top:2rem;
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+
+
+
+
+.zero-section {
+    position: relative; /* Ensure the section can position the overlay */
+    background: url(images/beautiful-tree-middle-field-covered-with-grass-with-tree-line-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+/* Add a pseudo-element for the overlay */
+.zero-section::before {
+    content: ""; /* Required to display the overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay with 50% opacity */
+    z-index: 1; /* Ensure it’s behind the text but above the background image */
+}
+
+/* Ensure the text and other content stay above the overlay */
+.zero-section * {
+    margin-top:2rem;
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+.counter {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    margin-top: 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: white; /* Ensure title color is also white for visibility */
+}
+
+
+.counter {
+    font-size: 4rem;
+    font-weight: bold;
+    color:white;
+    margin-top: 20px;
+}
+
+
+.feature-section {
+    padding: 50px 0;
+}
+
+.feature-card {
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 1rem; /* Adjust the spacing between cards */
+    width: 100%; /* Allow cards to be responsive */
+    max-width: 300px; /* Set a max-width for each card */
+}
+
+/* Ensure the row is a flex container */
+.feature-section .row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent cards from wrapping to the next line */
+    justify-content: space-between; /* Space out the cards */
+}
+
+.feature-card i{
+    font-size:2rem;
+}
+
+.feature-card h3 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.feature-card p {
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color:#212529;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-in-out;
+}
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.btn-primary {
+    background-color:#1da738;
+    color: white;
+    border-color:#1da738;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-primary2 {
+    margin-right: 0.5rem;
+}
+
+
+.btn-primary2 {
+    background-color: #343a40;
+    color: white;
+    border-color: #343a40;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+}
+
+.btn-primary2 i {
+    margin-right: 0.5rem;
+}
+
+
+
+#sunEmoji, #moonEmoji {
+    font-size: 1rem; /* Adjust size as needed */
+    transition: opacity 0.3s ease;
+}
+
+
+#sunEmoji.d-none, #moonEmoji.d-none {
+    display: none;
+}
+
+.dark-theme #sunEmoji {
+    display: inline;
+    opacity: 1;
+}
+
+.dark-theme #moonEmoji {
+    display: none;
+}
+
+.light-theme #sunEmoji {
+    display: none;
+}
+
+.light-theme #moonEmoji {
+    display: inline;
+}
+
+/* Service Card Styles */
+.service-card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white; /* Ensure the text is visible on the background image */
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Overlay to darken the image background for better text readability */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Adjust the opacity to suit your design */
+    border-radius: 0.5rem;
+    transition: background 0.3s ease;
+}
+
+.service-card:hover .overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Content inside the service card */
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.icon-container {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top:2rem;
+}
+
+.service-card h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.btn-primary4 {
+    background-color: #1da738;
+    color: white;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.btn-primary4:hover{
+  background-color: transparent;
+  border: 1px solid #ffffff;
+
+}
+
+.btn-primary4 i {
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary4:hover i {
+    transform: translateX(3px);
+}
+
+
+.btn-primary5{
+    background-color:#f39c12;
+    color: white;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.btn-primary5:hover{
+  background-color: transparent;
+  border: 1px solid #ffffff;
+
+}
+
+.btn-primary5 i {
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary5:hover i {
+    transform: translateX(3px);
+}
+
+/* Dark Mode Specific Styles */
+.bg-dark .service-card {
+    background-color: #343a40;
+}
+
+.bg-dark .icon-container {
+    color: #f8f9fa;
+}
+
+
+/* General Community Section Styles */
+.community-section {
+    padding: 5rem 0; /* Adjust padding as needed */
+    background: #f8f9fa; /* Default background color */
+}
+
+/* Service Box Styles */
+/* General Service Box Styles */
+.service-box {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #f8f9f9;
+    padding: 2rem;
+    border-radius: .5rem;
+    transition: transform 0.3s ease;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+/* Dark Mode Specific Styles */
+.bg-dark .service-box {
+    background-color: #495057;
+    border: 1px solid #6c757d;
+    background-image: none; /* Ensure background image doesn't shift */
+}
+
+/* Overlay for service box */
+.service-box-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.10);
+    z-index: 1;
+    border-radius: .5rem;
+}
+
+.bg-dark .service-box-overlay {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Content within the service box */
+.service-box-content {
+    position: relative;
+    z-index: 2; /* Ensure text is on top of the overlay */
+    padding: 1rem;
+    border-radius: .5rem;
+    color: #f8f9f9;
+    margin-top: auto; /* Push content to the bottom */
+}
+
+/* Icon Container within Service Box */
+.service-box .icon-container {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2; /* Ensure icon is on top of the overlay */
+}
+
+.service-box .icon-container i {
+    font-size: 3rem; /* Size of the icon */
+    color: #f8f9f9; /* Color of the icon */
+}
+
+/* Title and Text Styling */
+.service-box h4 {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.service-box p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #e0e0e0 !important;
+}
+
+/* Button Styling */
+.service-box a.btn-primary {
+    margin-top: 1rem;
+    background-color: #1da738;
+    border-color: #1da738;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    color: #f8f9f9; /* Button text color */
+    text-decoration: none; /* Remove underline from button */
+}
+
+/* Hover Effects */
+.service-box:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Dark theme specific adjustments */
+.bg-dark .community-section {
+    background: #343a40; /* Dark background color for the section in dark mode */
+}
+
+.bg-dark .service-box-overlay {
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay for dark mode */
+}
+
+.bg-dark .service-box p {
+    color: #e0e0e0; /* Light text color for descriptions in dark mode */
+}
+
+.bg-dark .section-title {
+    color: #e0e0e0; /* Light text color for section title in dark mode */
+}
+
+/* Section Title Styling */
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Visibility and Transition for Service Box */
+.service-box {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: .5rem;
+    background-color: #f9f9f9;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Start with a slight offset */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transitions */
+}
+
+.service-box.visible {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.service-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: .5rem;
+}
+
+/* Dark theme styles */
+.bg-dark {
+    background-color: #212529 !important; /* Dark background for body */
+}
+
+.text-light {
+    color: #f8f9fa !important; /* Light text color */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #f8f9fa; /* Light color for nav links in dark mode */
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #adb5bd; /* Light gray on hover in dark mode */
+}
+
+.dropdown-menu {
+    background-color: #212529; /* Dark background for dropdown */
+    border: 1px solid #343a40; /* Dark border for dropdown */
+}
+
+.dropdown-item {
+    color: #f8f9fa; /* Light text color for dropdown items */
+}
+
+.dropdown-item:hover {
+    background-color: #343a40; /* Darker background on hover for dropdown items */
+    color: #1da738; /* Text color on hover for dropdown items */
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-dark {
+    background-color:transparent;
+    border: 0;
+    transition: 200ms ease;
+}
+
+.btn-dark:hover {
+    background-color: transparent;
+    border: 1px solid #1da738;
+    border-radius: 8px;
+    color: #1da738;
+}
+
+.navbar-brand {
+    transition: 200ms ease;
+}
+
+.navbar-brand:hover {
+    transform:rotate(95deg);
+}
+
+.nav-link {
+    margin-right: 1rem; /* Adjusted margin for better spacing on small screens */
+    font-size: 0.9rem;
+    transition: 200ms ease;
+}
+
+.nav-link:hover {
+    color: #f39c12;
+}
+
+.hero {
+    background: #f8f9fa; /* Default background color for hero section */
+    width: 100%;
+    height: 100vh;
+}
+
+.hero h1 {
+    font-weight: 900;
+    margin-top: 8.5rem;
+    font-size: 3rem; /* Adjusted for responsiveness */
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-bottom: 1rem; /* Margin for spacing below the heading */
+}
+
+.hero .highlight {
+    color: #1da738;
+    padding: 0 0.25rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.hero-text {
+    font-size: 1.4rem; /* Adjusted for responsiveness */
+    margin-bottom: 1.5rem; /* Margin for spacing below the text */
+    font-weight: 400;
+    color: #6c757d;
+}
+
+.btn-primary {
+    background-color: #1da738;
+    border-color: #1da738;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+}
+
+.btn-primary2 {
+    color: white;
+    background-color: #343a40;
+    border-color: #343a40;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+}
+
+.btn-primary2:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #076913;
+    border-color: #076913;
+}
+
+.purchase-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.purchase-info .stars i.fas.fa-star {
+    color: #f39c12; /* Yellow color for the stars */
+    margin: 0 2px; /* Spacing between stars */
+    font-size: 1rem; /* Adjusted size for responsiveness */
+}
+
+@media (max-width: 768px) {
+    /* Adjust hero section for mobile screens */
+    .hero {
+        padding: 2rem 1rem; /* Reduced padding for smaller screens */
+    }
+
+    .hero h1 {
+        font-size: 4rem; /* Smaller font size for mobile screens */
+        margin-bottom: 1rem; /* Margin for spacing below the heading */
+    }
+
+    .hero-text {
+        font-size: 1rem; /* Smaller font size for mobile screens */
+        margin-bottom: 1rem; /* Margin for spacing below the text */
+    }
+
+    .btn-primary {
+        font-size: 0.875rem; /* Smaller font size for buttons on mobile */
+        padding: 0.5rem 1.25rem; /* Adjusted padding for mobile buttons */
+    }
+
+    .purchase-info {
+        flex-direction: column; /* Stack items vertically on mobile */
+        align-items: center; /* Center items on mobile */
+        text-align: center; /* Center text on mobile */
+    }
+
+    .purchase-info img {
+        margin-bottom: 0.5rem; /* Margin below the image on mobile */
+    }
+
+    .purchase-info .stars {
+        margin-top: 0.5rem; /* Reduced margin-top for stars on mobile */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Stack nav items vertically on mobile */
+        text-align: center; /* Center text on mobile */
+    }
+
+    .navbar-nav .nav-link {
+        margin: 0.5rem 0; /* Reduced margin for nav links on mobile */
+    }
+
+    .navbar-brand {
+        margin-bottom: 1rem; /* Margin below the logo on mobile */
+    }
+
+    .hero h1 {
+        font-size: 1.5rem; /* Further reduced font size for very small screens */
+    }
+
+    .hero-text {
+        font-size: 0.875rem; /* Smaller font size for very small screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 3rem; /* Smaller font size for small screens */
+        margin: 0;
+    }
+
+    .hero-text {
+        font-size: 0.875rem; /* Smaller font size for small screens */
+    }
+
+    .btn-primary {
+        font-size: 0.75rem; /* Smaller font size for small screens */
+        padding: 0.5rem 1rem; /* Adjusted padding for small screens */
+    }
+}
+
+/* Dark theme specific adjustments */
+.bg-dark .hero {
+    background: #212529; /* Dark background for hero section in dark mode */
+}
+
+.bg-dark .hero-text {
+    color: #e0e0e0; /* Light text color for hero text in dark mode */
+}
+
+.bg-dark .btn-primary {
+    background-color: #076913; /* Darker button color for dark mode */
+    border-color: #076913;
+}
+
+.bg-dark .btn-primary:hover {
+    background-color: #1da738; /* Button color on hover in dark mode */
+    border-color: #1da738;
+}
+
+.bg-dark .purchase-info .stars i.fas.fa-star {
+    color: #f39c12; /* Keep star color consistent in dark mode */
+}
+
+.bg-dark .purchase-info {
+    color: #e0e0e0; /* Text color for purchase info in dark mode */
+}
+
+.bg-dark .navbar {
+    background-color: #343a40; /* Dark background for navbar in dark mode */
+}
+
+.bg-dark .navbar-light .navbar-nav .nav-link {
+    color: #f8f9fa; /* Light color for nav links in dark mode */
+}
+
+.bg-dark .navbar-light .navbar-nav .nav-link:hover {
+    color: #adb5bd; /* Light gray on hover in dark mode */
+}
+
+.bg-dark .dropdown-menu {
+    background-color: #343a40; /* Dark background for dropdown in dark mode */
+    border: 1px solid #495057; /* Darker border for dropdown in dark mode */
+}
+
+.bg-dark .dropdown-item {
+    color: #f8f9fa; /* Light text color for dropdown items in dark mode */
+}
+
+.bg-dark .dropdown-item:hover {
+    background-color: #495057; /* Darker background on hover for dropdown items in dark mode */
+    color: #1da738; /* Text color on hover for dropdown items in dark mode */
+}
+
+/* Dark theme styles for community section */
+#communitySection.bg-dark {
+    background-color: #343a40; /* Dark background for the community section */
+}
+
+#communitySection.bg-dark .section-title {
+    color: #e0e0e0; /* Light text color for section title */
+}
+
+#communitySection.bg-dark .service-box {
+    background-color: #495057; /* Dark background for service boxes */
+    border: 1px solid #6c757d; /* Dark border for service boxes */
+}
+
+#communitySection.bg-dark .service-box p {
+    color: #e0e0e0; /* Light text color for service descriptions */
+}
+
+/* Alignment and Padding for Community Section */
+#communitySection .service-box {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#communitySection .service-box .icon-container {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#communitySection .service-box h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#communitySection .service-box p {
+    font-size: 1rem;
+    color: #e0e0e0; /* Light color for text */
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments for Community Section */
+@media (max-width: 768px) {
+    #communitySection .service-box {
+        padding: 1.5rem;
+    }
+
+    #communitySection .service-box h4 {
+        font-size: 1.25rem;
+    }
+
+    #communitySection .service-box p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .btn-primary2 {
+        font-size: 0.875rem;
+        padding: 0.5rem 1.25rem;
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    #communitySection .service-box h4 {
+        font-size: 1rem;
+    }
+
+    #communitySection .service-box p {
+        font-size: 0.875rem;
+    }
+
+    .btn-primary2 {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+
+    
+}

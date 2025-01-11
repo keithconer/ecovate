@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="icon" href="images/icons8-garden-gloves-70.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Ecovate</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/icons8-garden-gloves-70.png" alt="Logo" style="width: 50px; height: 50px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="tech.html">Technologies</a></li>
+                            <li><a class="dropdown-item" href="ec.html">Ecolife</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <button class="btn btn-dark ms-3 d-none d-lg-block" type="button" id="themeToggle" aria-label="Toggle theme">
+                    <span id="sunEmoji" class="d-none">🌞</span>
+                    <span id="moonEmoji">🌜</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="container mt-5 products-section">
+        <h2 class="text-center mb-4">Our Eco & Budget Friendly Products</h2>
+        <div class="row justify-content-center">
+          <!-- Product 1 -->
+          <div class="col-md-3 mb-4">
+            <div class="card position-relative">
+              <img src="images/recycledphone-removebg-preview.png" class="card-img-top" alt="Product 1">
+              <span class="badge bg-success position-absolute top-0 start-0 m-2">Best Seller</span>
+              <div class="card-body">
+                <h5 class="card-title">Ecovate Recycled Materials Phone Case</h5>
+                <p class="card-text">Collaboration with gadgets & realest technology.</p>
+                <p class="card-text"><strong>$25.99</strong></p>
+                <button class="btn btn-primary btn-lg add-to-cart" 
+                        data-name="Ecovate Recycled Materials Phone Case" 
+                        data-price="25.99" 
+                        data-details="Collaboration with gadgets & realest technology." 
+                        onclick="addToCart(event, this)">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 2 -->
+          <div class="col-md-3 mb-4">
+            <div class="card position-relative">
+              <img src="images/ecofriendlytumbler-removebg-preview.png" class="card-img-top" alt="Product 2">
+              <span class="badge bg-success position-absolute top-0 start-0 m-2">50% Sale</span>
+              <div class="card-body">
+                <h5 class="card-title">Ecovate Eco-Friendly Tumblers</h5>
+                <p class="card-text">A specialized collaboration with eco bottle.</p>
+                <p class="card-text"><strong>$12.99</strong></p>
+                <button class="btn btn-primary btn-lg add-to-cart" 
+                        data-name="Ecovate Eco-Friendly Tumblers" 
+                        data-price="12.99" 
+                        data-details="A specialized collaboration with eco bottle." 
+                        onclick="addToCart(event, this)">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 3 -->
+          <div class="col-md-3 mb-4">
+            <div class="card position-relative">
+              <img src="images/snake-plant-beige-pot-removebg-preview.png" class="card-img-top" alt="Product 3">
+              <span class="badge bg-success position-absolute top-0 start-0 m-2">Best for Home</span>
+              <div class="card-body">
+                <h5 class="card-title">Ecovate Snake Plant</h5>
+                <p class="card-text">Collaboration with flower a very efficient home plant that bombs oxygen.</p>
+                <p class="card-text"><strong>$10.99</strong></p>
+                <button class="btn btn-primary btn-lg add-to-cart" 
+                        data-name="Ecovate Snake Plant" 
+                        data-price="10.99" 
+                        data-details="Collaboration with flower a very efficient home plant that bombs oxygen." 
+                        onclick="addToCart(event, this)">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Product 4 -->
+          <div class="col-md-3 mb-4">
+            <div class="card position-relative">
+              <img src="images/ecofriendlylaptopbag-removebg-preview.png" class="card-img-top" alt="Product 4">
+              <span class="badge bg-success position-absolute top-0 start-0 m-2">Recommended</span>
+              <div class="card-body">
+                <h5 class="card-title">Ecovate Laptop Bags</h5>
+                <p class="card-text">A laptop bag with eco friendly material, collaboration with realest and gadgets.</p>
+                <p class="card-text"><strong>$52.99</strong></p>
+                <button class="btn btn-primary btn-lg add-to-cart" 
+                        data-name="Ecovate Laptop Bags" 
+                        data-price="52.99" 
+                        data-details="A laptop bag with eco friendly material, collaboration with realest and gadgets." 
+                        onclick="addToCart(event, this)">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      
+<!-- Cart Icon with Notification -->
+<div id="cartIcon" class="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
+    <i class="fas fa-shopping-cart"></i>
+    <div id="cartNotification" class="cart-notification">0</div>
+  </div>
+  
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Cart Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cartItems">
+            <!-- Cart items will be dynamically inserted here -->
+          </div>
+          <h4>Total: $<span id="cartTotal">0.00</span></h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmModal">Confirm Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Confirmation Modal -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Order Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Your order has been placed. It will be delivered soon!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="redirectToIndex()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer bg-dark text-light py-4">
+    <div class="container d-flex flex-column align-items-center">
+        <div class="d-flex align-items-center mb-2">
+            <a class="navbar-brand me-3" href="index.html">
+                <img src="images/icons8-garden-gloves-70.png" alt="Logo">
+            </a>
+            <div class="tagline text-center">
+                Our goal is to innovate technologies and promote green environment.
+            </div>
+        </div>
+        <p class="text-center mb-0">© 2024 Ecovate. All rights reserved.</p>
+    </div>
+</footer>
+
+
+
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   
+   
+   
+
+
+   
+    <!-- Bootstrap JS and dependencies -->
+    <script>
+      const themeToggleButton = document.getElementById('themeToggle');
+const body = document.body;
+const navbar = document.getElementById('navbar');
+const communitySection = document.getElementById('communitySection');
+const sunEmoji = document.getElementById('sunEmoji');
+const moonEmoji = document.getElementById('moonEmoji');
+
+themeToggleButton.addEventListener('click', () => {
+    body.classList.toggle('bg-dark');
+    body.classList.toggle('text-light');
+    navbar.classList.toggle('bg-dark');
+    navbar.classList.toggle('navbar-dark');
+    navbar.classList.toggle('bg-light');
+    navbar.classList.toggle('navbar-light');
+    communitySection.classList.toggle('bg-dark');
+    communitySection.classList.toggle('text-light');
+    sunEmoji.classList.toggle('d-none');
+    moonEmoji.classList.toggle('d-none');
+});
+
+
+
+// Cart functionality
+const cart = [];
+let cartCount = 0;
+
+function addToCart(event, button) {
+    event.preventDefault(); // Prevent default action if necessary
+
+    const packageName = button.getAttribute('data-name');
+    const packagePrice = parseFloat(button.getAttribute('data-price'));
+    const packageDetails = button.getAttribute('data-details');
+
+    const existingItemIndex = cart.findIndex(item => item.name === packageName);
+    if (existingItemIndex === -1) {
+        cart.push({ name: packageName, price: packagePrice, details: packageDetails });
+        cartCount++;
+        updateCartNotification();
+    } else {
+        console.log('Item already in cart:', packageName);
+    }
+}
+
+function updateCartNotification() {
+    const cartNotification = document.getElementById('cartNotification');
+    cartNotification.textContent = cartCount;
+    cartNotification.style.display = cartCount > 0 ? 'flex' : 'none';
+}
+
+function updateCartModal() {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    let total = 0;
+
+    cartItems.innerHTML = '';
+    cart.forEach(item => {
+        cartItems.innerHTML += `<p>${item.name}: $${item.price.toFixed(2)}<br>Details: ${item.details}</p>`;
+        total += item.price;
+    });
+
+    cartTotal.textContent = total.toFixed(2);
+}
+
+function handleOrderConfirmation() {
+    const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+    confirmModal.show();
+
+    document.getElementById('confirmModal').addEventListener('hidden.bs.modal', function () {
+        window.location.href = 'index.html'; // Redirect to index.html
+    });
+}
+
+document.getElementById('cartModal').addEventListener('show.bs.modal', updateCartModal);
+document.querySelector('.btn-primary[data-bs-target="#confirmModal"]').addEventListener('click', handleOrderConfirmation);
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function (event) {
+        addToCart(event, this);
+    });
+});
+
+
+</script>
+</body>
+</html>
+
+
+
