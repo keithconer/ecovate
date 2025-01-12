@@ -140,24 +140,30 @@
 
 
 
-
 <!-- Welcome Modal -->
 <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="welcomeModalLabel">Welcome to the Ecovate Community</h5>
+                <h5 class="modal-title" id="welcomeModalLabel">Welcome to the Ecovate Community!</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                Welcome to the Ecovate Community, where technology meets the green. Let's innovate and save the world together.
+            <div class="modal-body text-center">
+                <p>
+                    Welcome to the Ecovate Community, where technology meets sustainability. Together, we innovate, promote green practices, and work to save the planet.
+                </p>
+                <img src="images/tree2.png" alt="Community Welcome" class="img-fluid my-3" style="max-width: 70%; border-radius: 10px;">
+                <p>
+                    We're excited to have you join us in making a difference. Let's work together to create a greener future.
+                </p>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="okButton">OK</button>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-success" id="okButton">Let's Get Started</button>
             </div>
         </div>
     </div>
 </div>
+
 
     
 
@@ -577,7 +583,6 @@
 <script>
 
 
-
 document.getElementById("confirmJoin").addEventListener("click", function () {
         const form = document.getElementById("joinCommunityForm");
         const captchaContainer = document.getElementById("captchaContainer");
@@ -591,22 +596,31 @@ document.getElementById("confirmJoin").addEventListener("click", function () {
                 behavior: "smooth"
             });
 
-            // Re-initialize reCAPTCHA
+            // Render the reCAPTCHA widget
             grecaptcha.render("captchaContainer", {
-                sitekey: "6LeoL7UqAAAAAIKNqKY0-YnfhMDd2Wm7CjBddz-F",
-                callback: onCaptchaSuccess
+                sitekey: "YOUR_SITE_KEY", // Replace with your site key
+                callback: onCaptchaSuccess, // Callback when CAPTCHA is successful
+                "expired-callback": onCaptchaExpired // Handle expired CAPTCHA
             });
         } else {
-            // Show the browser's built-in form validation messages
+            // Show browser validation messages
             form.reportValidity();
         }
     });
 
-    // Callback for successful captcha verification
+    // Callback for successful CAPTCHA verification
     function onCaptchaSuccess(token) {
-        alert("Captcha verified successfully!");
-        // Optionally, send the form data to your server
-        document.getElementById("joinCommunityForm").submit();
+        // Hide the reCAPTCHA container after success
+        document.getElementById("captchaContainer").style.display = "none";
+
+        // Show the Welcome Modal
+        const welcomeModal = new bootstrap.Modal(document.getElementById("welcomeModal"));
+        welcomeModal.show();
+    }
+
+    // Optional: Handle expired CAPTCHA
+    function onCaptchaExpired() {
+        alert("The CAPTCHA has expired. Please verify again.");
     }
 
 
