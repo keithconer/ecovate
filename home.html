@@ -138,6 +138,27 @@
     </div>
 </div>
 
+<!-- reCAPTCHA Modal -->
+<div class="modal fade" id="captchaModal" tabindex="-1" aria-labelledby="captchaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="captchaModalLabel">Verify You're Human</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Please complete the CAPTCHA below to proceed:</p>
+                <div id="recaptcha-container"></div> <!-- reCAPTCHA widget will load here -->
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 <!-- Welcome Modal -->
@@ -582,46 +603,45 @@
 <!-- Bootstrap JS and dependencies -->
 <script>
 
-
-document.getElementById("confirmJoin").addEventListener("click", function () {
-        const form = document.getElementById("joinCommunityForm");
-        const captchaContainer = document.getElementById("captchaContainer");
-
-        // Check if the form is valid
-        if (form.checkValidity()) {
-            // Display the reCAPTCHA widget
-            captchaContainer.style.display = "block";
-            window.scrollTo({
-                top: captchaContainer.offsetTop,
-                behavior: "smooth"
-            });
-
-            // Render the reCAPTCHA widget
-            grecaptcha.render("captchaContainer", {
-                sitekey: "YOUR_SITE_KEY", // Replace with your site key
-                callback: onCaptchaSuccess, // Callback when CAPTCHA is successful
-                "expired-callback": onCaptchaExpired // Handle expired CAPTCHA
-            });
-        } else {
-            // Show browser validation messages
-            form.reportValidity();
-        }
+    // Initialize reCAPTCHA widget (you can load it dynamically here if needed)
+function loadCaptcha() {
+    grecaptcha.render('recaptcha-container', {
+        sitekey: '6LeoL7UqAAAAAIKNqKY0-YnfhMDd2Wm7CjBddz-F', // Your reCAPTCHA site key
+        callback: verifyCaptcha // Function triggered after successful CAPTCHA
     });
+}
+// Handle the Confirm button click for Join Community Modal
+document.getElementById('confirmJoin').addEventListener('click', function () {
+    // Validate the form fields
+    const form = document.getElementById('joinCommunityForm');
+    if (form.checkValidity()) {
+        // Show the reCAPTCHA modal if the form is valid
+        const captchaModal = new bootstrap.Modal(document.getElementById('captchaModal'));
+        captchaModal.show();
 
-    // Callback for successful CAPTCHA verification
-    function onCaptchaSuccess(token) {
-        // Hide the reCAPTCHA container after success
-        document.getElementById("captchaContainer").style.display = "none";
+        // Load the reCAPTCHA widget inside the modal
+        loadCaptcha();
+    } else {
+        form.reportValidity(); // Show validation messages if form is not valid
+    }
+});
+
+// Handle the successful verification of reCAPTCHA
+function verifyCaptcha(token) {
+    // Simulate the backend verification delay and show the Welcome Modal after successful verification
+    setTimeout(() => {
+        // Close the CAPTCHA modal after verification
+        const captchaModal = bootstrap.Modal.getInstance(document.getElementById('captchaModal'));
+        captchaModal.hide();
 
         // Show the Welcome Modal
-        const welcomeModal = new bootstrap.Modal(document.getElementById("welcomeModal"));
+        const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
         welcomeModal.show();
-    }
+    }, 1000); // Simulate a delay for backend verification
+}
 
-    // Optional: Handle expired CAPTCHA
-    function onCaptchaExpired() {
-        alert("The CAPTCHA has expired. Please verify again.");
-    }
+
+
 
 
 
@@ -745,16 +765,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-    // Confirm join and show welcome modal
-    document.getElementById('confirmJoin').addEventListener('click', function() {
-        var form = document.getElementById('joinCommunityForm');
-        if (form.checkValidity()) {
-            var joinCommunityModal = new bootstrap.Modal(document.getElementById('joinCommunityModal'));
-            joinCommunityModal.hide();
-            var welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
-            welcomeModal.show();
-        }
-    });
+ 
 
     // OK button in welcome modal
     document.getElementById('okButton').addEventListener('click', function() {
