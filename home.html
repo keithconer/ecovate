@@ -16,6 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
 <!-- Bootstrap CSS -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
@@ -89,8 +92,6 @@
         </div>
     </section>
 
-
-
 <!-- Join Community Modal -->
 <div class="modal fade" id="joinCommunityModal" tabindex="-1" aria-labelledby="joinCommunityModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -126,6 +127,7 @@
                             </label>
                         </div>
                     </div>
+                    <div class="g-recaptcha" data-sitekey="6LeoL7UqAAAAAIKNqKY0-YnfhMDd2Wm7CjBddz-F" id="captchaContainer" style="display: none;"></div>
                 </form>
             </div>
             <div class="modal-footer">
@@ -135,6 +137,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <!-- Welcome Modal -->
 <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
@@ -266,7 +271,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="confirmApplication">Confirm Application</button>
+                    <button type="button" class="btn btn-primary" id="confirmApplication" disabled>Confirm Application</button>
                 </div>
             </div>
         </div>
@@ -570,6 +575,86 @@
 
 <!-- Bootstrap JS and dependencies -->
 <script>
+
+
+
+document.getElementById("confirmJoin").addEventListener("click", function () {
+        const form = document.getElementById("joinCommunityForm");
+        const captchaContainer = document.getElementById("captchaContainer");
+
+        // Check if the form is valid
+        if (form.checkValidity()) {
+            // Display the reCAPTCHA widget
+            captchaContainer.style.display = "block";
+            window.scrollTo({
+                top: captchaContainer.offsetTop,
+                behavior: "smooth"
+            });
+
+            // Re-initialize reCAPTCHA
+            grecaptcha.render("captchaContainer", {
+                sitekey: "6LeoL7UqAAAAAIKNqKY0-YnfhMDd2Wm7CjBddz-F",
+                callback: onCaptchaSuccess
+            });
+        } else {
+            // Show the browser's built-in form validation messages
+            form.reportValidity();
+        }
+    });
+
+    // Callback for successful captcha verification
+    function onCaptchaSuccess(token) {
+        alert("Captcha verified successfully!");
+        // Optionally, send the form data to your server
+        document.getElementById("joinCommunityForm").submit();
+    }
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+        const confirmButton = document.getElementById('confirmJoin');
+        const form = document.getElementById('joinCommunityForm');
+
+        // Function to check if the form is valid
+        function checkFormValidity() {
+            confirmButton.disabled = !form.checkValidity(); // Enable/disable button based on form validity
+        }
+
+        // Attach event listeners to form fields
+        form.addEventListener('input', checkFormValidity); // For text and textarea inputs
+        form.addEventListener('change', checkFormValidity); // For select and checkbox inputs
+
+        // Initial check when the modal is shown
+        const joinCommunityModal = document.getElementById('joinCommunityModal');
+        joinCommunityModal.addEventListener('shown.bs.modal', checkFormValidity);
+    });
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+        const confirmButton = document.getElementById('confirmApplication');
+        const form = document.getElementById('applicationForm');
+
+        // Function to check if the form is valid
+        function checkFormValidity() {
+            confirmButton.disabled = !form.checkValidity(); // Enable/disable button based on form validity
+        }
+
+        // Attach event listeners to form fields
+        form.addEventListener('input', checkFormValidity); // For text inputs and select
+        form.addEventListener('change', checkFormValidity); // For radio buttons and other inputs
+
+        // Initial check on modal open
+        const applicationModal = document.getElementById('applicationModal');
+        applicationModal.addEventListener('shown.bs.modal', checkFormValidity);
+    });
+
+
+
+
+
     const themeToggleButton = document.getElementById('themeToggle');
     const body = document.body;
     const navbar = document.getElementById('navbar');
