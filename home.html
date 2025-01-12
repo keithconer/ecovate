@@ -450,7 +450,7 @@
 <!-- Scholarship Section with Countdown -->
 <section id="scholarshipSection" class="text-center text-light py-5">
     <div class="container">
-        <h2 class="display-4 mb-4">2025 Application for Scholarship Countdown</h2>
+        <h2 class="display-4 mb-4">2026 Application for Scholarship Countdown</h2>
        
         <div id="countdown" class="display-3 mb-4"></div>
         <p class="lead mb-4">We're providing full and partial scholarships for the students in need!</p>
@@ -608,7 +608,7 @@ document.getElementById('confirmApplication').addEventListener('click', function
 document.getElementById('redirectButton').addEventListener('click', function() {
     var confirmationModal = bootstrap.Modal.getInstance(document.getElementById('confirmationModal')); // Corrected method to get modal instance
     confirmationModal.hide();
-    window.location.href = 'index.html';
+    window.location.href = 'home.html';
 });
 
 
@@ -628,7 +628,7 @@ document.getElementById('confirmJoin').addEventListener('click', function() {
 
 // OK button in welcome modal
 document.getElementById('okButton').addEventListener('click', function() {
-    window.location.href = 'index.html'; // Redirects to index.html
+    window.location.href = 'home.html'; // Redirects to index.html
 });
 
 // Scroll to top button
@@ -706,10 +706,10 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
 
 
-// Countdown to 2025
+// Countdown to 2026
 function startCountdown() {
     const countdownElement = document.getElementById('countdown');
-    const targetDate = new Date('2025-01-01T00:00:00');
+    const targetDate = new Date('2026-01-01T00:00:00'); // Updated to 2026
     
     function updateCountdown() {
         const now = new Date();
@@ -733,6 +733,7 @@ function startCountdown() {
 }
 
 startCountdown();
+
 
 
 
