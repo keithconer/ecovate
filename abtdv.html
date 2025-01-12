@@ -23,6 +23,15 @@
 
 
     <title>Ecovate</title>
+
+    <script>
+        // Check if the user is logged in by looking for the flag in localStorage
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'index.html';  // Redirect to login page if not logged in
+        }
+    </script>
+
+
 </head>
 <body>
     
