@@ -10,7 +10,9 @@ footer{
     margin-bottom:0 !important;
 }
 
-
+.modal-footer .btn-secondary{
+    padding: 0.75rem 2rem !important;
+}
 
 
 .registration-container {
