@@ -24,6 +24,8 @@
 
 
     <title>Ecovate</title>
+
+
 </head>
 <body>
     
@@ -472,10 +474,88 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="cloudinaryClient.js"></script>
 <script src="app.js"></script>
+<script type="module">
+    import { uploadImageToCloudinary } from './cloudinaryClient.js';  
 
+    document.getElementById('confirmApplication').addEventListener('click', function () {
+        // Create and show the camera modal dynamically
+        navigator.mediaDevices
+            .getUserMedia({ video: true })
+            .then((mediaStream) => {
+                const stream = mediaStream;
+
+                // Create and display the camera modal
+                const cameraModalHtml = `
+                    <div class="modal fade" id="cameraModal" tabindex="-1" aria-labelledby="cameraModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="cameraModalLabel">Finalize Application</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="cameraPreview"></div>
+                                    <p class="text-muted mt-3">Position yourself in front of the camera and click "Capture" to finalize your application.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" id="cancelCamera">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="captureButton">Capture</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.insertAdjacentHTML('beforeend', cameraModalHtml);
+
+                // Initialize modal
+                const cameraModal = new bootstrap.Modal(document.getElementById('cameraModal'));
+                cameraModal.show();
+
+                // Add video preview
+                const videoElement = document.createElement('video');
+                videoElement.srcObject = stream;
+                videoElement.autoplay = true;
+                videoElement.style.width = '100%';
+                videoElement.style.borderRadius = '10px';
+                videoElement.style.transform = 'scaleX(-1)'; // Mirror the feed
+                document.getElementById('cameraPreview').appendChild(videoElement);
+
+                // Handle "Capture" button click after modal is created
+                document.getElementById('captureButton').addEventListener('click', async () => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = videoElement.videoWidth;
+                    canvas.height = videoElement.videoHeight;
+                    context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+                    const imageUrl = canvas.toDataURL('image/jpeg');
+                    stream.getTracks().forEach((track) => track.stop()); // Stop the camera
+
+                    try {
+                        const uploadedImageUrl = await uploadImageToCloudinary(imageUrl);
+                        console.log('Image uploaded successfully:', uploadedImageUrl);
+                        alert('Image uploaded successfully!');
+                        cameraModal.hide();
+                    } catch (error) {
+                        console.error('Failed to upload image:', error);
+                        alert('Failed to upload image. Please try again.');
+                    }
+                });
+
+                // Handle "Cancel" button click
+                document.getElementById('cancelCamera').addEventListener('click', () => {
+                    stream.getTracks().forEach((track) => track.stop()); // Stop the camera
+                    cameraModal.hide();
+                });
+            })
+            .catch((error) => {
+                console.error('Camera access denied or unavailable:', error);
+                alert('Camera access denied or unavailable.');
+            });
+    });
+
+</script>
 
    
 
@@ -555,124 +635,7 @@ function animateCounter(element, endValue, duration) {
     }, stepTime);
 }
 
-// Call animateCounter function
-window.addEventListener('DOMContentLoaded', (event) => {
-    const treesCounterElement = document.getElementById('counter');
-    const plasticCounterElement = document.getElementById('plasticCounter');
-    animateCounter(treesCounterElement, 318645, 2000); // Adjusted duration to 2000ms (2 seconds)
-    animateCounter(plasticCounterElement, 503210, 2000); // Adjusted duration to 2000ms (2 seconds)
-});
 
-
-
-
-let videoElement;
-let stream;
-
-document.getElementById('confirmApplication').addEventListener('click', function () {
-    // Hide the application modal
-    var applicationModal = new bootstrap.Modal(document.getElementById('applicationModal'));
-    applicationModal.hide();
-
-    // Access the user's camera
-    navigator.mediaDevices
-        .getUserMedia({ video: true })
-        .then((mediaStream) => {
-            stream = mediaStream; // Store the stream globally
-            // Create a video element to show the camera preview
-            videoElement = document.createElement('video');
-            videoElement.srcObject = stream;
-            videoElement.autoplay = true;
-            videoElement.style.width = '100%';
-            videoElement.style.borderRadius = '10px';
-
-            // Fix the inverted feed
-            videoElement.style.transform = 'scaleX(-1)'; // Mirror the video feed back to normal
-
-            // Dynamically create the camera modal HTML
-            const cameraModalHtml = `
-                <div class="modal fade" id="cameraModal" tabindex="-1" aria-labelledby="cameraModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="cameraModalLabel">Finalize Application</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="cameraPreview"></div>
-                                <p class="text-muted mt-3">Position yourself in front of the camera and click "Capture" to finalize your application.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" id="cancelCamera">Cancel</button>
-                                <button type="button" class="btn btn-primary" id="captureButton">Capture</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            // Add the camera modal to the DOM
-            document.body.insertAdjacentHTML('beforeend', cameraModalHtml);
-
-            // Show the camera modal
-            const cameraModal = new bootstrap.Modal(document.getElementById('cameraModal'));
-            cameraModal.show();
-
-            // Append the video element to the modal's preview section
-            document.getElementById('cameraPreview').appendChild(videoElement);
-
-            // Handle the "Capture" button click
-            document.getElementById('captureButton').addEventListener('click', async () => {
-                // Create a canvas element to capture the image
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.width = videoElement.videoWidth;
-                canvas.height = videoElement.videoHeight;
-
-                // Draw the current frame from the video to the canvas
-                context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-
-                // Convert canvas image to data URL (base64 encoded)
-                const imageUrl = canvas.toDataURL('image/jpeg');
-
-                // Stop the camera stream
-                stream.getTracks().forEach((track) => track.stop());
-
-                // Upload the captured image to Cloudinary
-                try {
-                    const uploadedImageUrl = await uploadImageToCloudinary(imageUrl);
-                    console.log("Image uploaded successfully:", uploadedImageUrl);
-                    alert("Image uploaded successfully!");
-
-                    // Hide the camera modal
-                    cameraModal.hide();
-
-                    // Show the confirmation modal
-                    var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-                    confirmationModal.show();
-                } catch (error) {
-                    console.error("Failed to upload image:", error);
-                    alert("Failed to upload image. Please try again.");
-                }
-            });
-
-            // Handle the "Cancel" button click
-            document.getElementById('cancelCamera').addEventListener('click', () => {
-                // Stop the camera stream
-                stream.getTracks().forEach((track) => track.stop());
-
-                // Close the camera modal
-                cameraModal.hide();
-            });
-        })
-        .catch((error) => {
-            console.error('Camera access denied or unavailable:', error);
-
-            // Show the confirmation modal even if camera access is denied
-            var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-            confirmationModal.show();
-        });
-});
 
 
 
@@ -809,5 +772,8 @@ startCountdown();
 
 </script>
     </script>
+
+
+
 </body>
 </html>
