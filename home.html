@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -488,7 +489,7 @@
   <footer class="footer bg-dark text-light py-4">
     <div class="container d-flex flex-column align-items-center">
         <div class="d-flex align-items-center mb-2">
-            <a class="navbar-brand me-3" href="index.html">
+            <a class="navbar-brand me-3" href="home.html">
                 <img src="images/icons8-garden-gloves-70.png" alt="Logo">
             </a>
             <div class="tagline text-center">
@@ -503,9 +504,8 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="cloudinaryClient.js"></script>
 <script src="app.js"></script>
-
-
 
 
    
@@ -596,6 +596,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
+
+let videoElement;
+let stream;
+
 document.getElementById('confirmApplication').addEventListener('click', function () {
     // Hide the application modal
     var applicationModal = new bootstrap.Modal(document.getElementById('applicationModal'));
@@ -604,9 +608,10 @@ document.getElementById('confirmApplication').addEventListener('click', function
     // Access the user's camera
     navigator.mediaDevices
         .getUserMedia({ video: true })
-        .then((stream) => {
+        .then((mediaStream) => {
+            stream = mediaStream; // Store the stream globally
             // Create a video element to show the camera preview
-            const videoElement = document.createElement('video');
+            videoElement = document.createElement('video');
             videoElement.srcObject = stream;
             videoElement.autoplay = true;
             videoElement.style.width = '100%';
@@ -615,7 +620,7 @@ document.getElementById('confirmApplication').addEventListener('click', function
             // Fix the inverted feed
             videoElement.style.transform = 'scaleX(-1)'; // Mirror the video feed back to normal
 
-            // Create a camera modal dynamically
+            // Dynamically create the camera modal HTML
             const cameraModalHtml = `
                 <div class="modal fade" id="cameraModal" tabindex="-1" aria-labelledby="cameraModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -637,26 +642,49 @@ document.getElementById('confirmApplication').addEventListener('click', function
                 </div>
             `;
 
+            // Add the camera modal to the DOM
             document.body.insertAdjacentHTML('beforeend', cameraModalHtml);
 
             // Show the camera modal
             const cameraModal = new bootstrap.Modal(document.getElementById('cameraModal'));
             cameraModal.show();
 
-            // Append the video preview to the camera modal
+            // Append the video element to the modal's preview section
             document.getElementById('cameraPreview').appendChild(videoElement);
 
             // Handle the "Capture" button click
-            document.getElementById('captureButton').addEventListener('click', () => {
+            document.getElementById('captureButton').addEventListener('click', async () => {
+                // Create a canvas element to capture the image
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.width = videoElement.videoWidth;
+                canvas.height = videoElement.videoHeight;
+
+                // Draw the current frame from the video to the canvas
+                context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+                // Convert canvas image to data URL (base64 encoded)
+                const imageUrl = canvas.toDataURL('image/jpeg');
+
                 // Stop the camera stream
                 stream.getTracks().forEach((track) => track.stop());
 
-                // Close the camera modal
-                cameraModal.hide();
+                // Upload the captured image to Cloudinary
+                try {
+                    const uploadedImageUrl = await uploadImageToCloudinary(imageUrl);
+                    console.log("Image uploaded successfully:", uploadedImageUrl);
+                    alert("Image uploaded successfully!");
 
-                // Show the confirmation modal
-                var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-                confirmationModal.show();
+                    // Hide the camera modal
+                    cameraModal.hide();
+
+                    // Show the confirmation modal
+                    var confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                    confirmationModal.show();
+                } catch (error) {
+                    console.error("Failed to upload image:", error);
+                    alert("Failed to upload image. Please try again.");
+                }
             });
 
             // Handle the "Cancel" button click
@@ -677,13 +705,6 @@ document.getElementById('confirmApplication').addEventListener('click', function
         });
 });
 
-// Redirect button in confirmation modal
-document.getElementById('redirectButton').addEventListener('click', function () {
-    var confirmationModal = bootstrap.Modal.getInstance(document.getElementById('confirmationModal')); // Corrected method to get modal instance
-    confirmationModal.hide();
-    window.location.href = 'home.html';
-});
-
 
 
 
@@ -702,7 +723,7 @@ document.getElementById('confirmJoin').addEventListener('click', function() {
 
 // OK button in welcome modal
 document.getElementById('okButton').addEventListener('click', function() {
-    window.location.href = 'home.html'; // Redirects to index.html
+    window.location.href = 'home.html'; 
 });
 
 // Scroll to top button
@@ -764,7 +785,7 @@ function handleOrderConfirmation() {
     confirmModal.show();
 
     document.getElementById('confirmModal').addEventListener('hidden.bs.modal', function () {
-        window.location.href = 'index.html'; // Redirect to index.html
+        window.location.href = 'home.html'; // Redirect to index.html
     });
 }
 
