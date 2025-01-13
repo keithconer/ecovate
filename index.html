@@ -41,14 +41,15 @@
             <h2>Login</h2>
             <form id="loginForm">
                 <div class="form-group position-relative">
-                    <i class="fas fa-user form-control-icon"></i>
-                    <input type="text" class="form-control" placeholder="Username" name="username" required>
+                    <i class="fas fa-envelope form-control-icon"></i>
+                    <input type="email" class="form-control" placeholder="Email" name="email" required>
                 </div>
                 <div class="form-group position-relative">
                     <i class="fas fa-lock form-control-icon"></i>
                     <input type="password" class="form-control" placeholder="Password" name="password" required>
                 </div>
                 <button type="submit" class="btn login-btn">Login</button>
+                <button type="button" id="googleSignIn" class="btn login-btn">Sign in with Google</button>
                 <div class="register-link">
                     <p>Don't have an account yet? <a href="registration.html">Register</a></p>
                 </div>
@@ -56,72 +57,95 @@
             </form>
         </div>
     </div>
-
-   <!-- Firebase SDK and other scripts -->
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyCU500X_Ongrwi3-ovg2acbKrDUUOt0MMw",
-        authDomain: "practical-11156.firebaseapp.com",
-        databaseURL: "https://practical-11156-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "practical-11156",
-        storageBucket: "practical-11156.appspot.com",
-        messagingSenderId: "1008221940017",
-        appId: "1:1008221940017:web:9cf0304da27263110de810"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-
-    // Handle login form submission
-    document.getElementById('loginForm').addEventListener('submit', async function(event) {
-        event.preventDefault();
-
-        const username = event.target.username.value;
-        const password = event.target.password.value;
-
-        const messageElement = document.getElementById('loginMessage');
-        messageElement.classList.remove('alert-success', 'alert-danger');
-        messageElement.textContent = '';
-
-        try {
-            // Retrieve user data from Realtime Database
-            const userSnapshot = await get(ref(database, 'Accounts/' + username));
-            if (userSnapshot.exists()) {
-                const storedPassword = userSnapshot.val().password;
-
-                // Check if the provided password matches the stored password
-                if (password === storedPassword) {
-                    // Successful login: set the isLoggedIn flag in localStorage
-                    localStorage.setItem('isLoggedIn', 'true');
-                    messageElement.classList.add('alert-success');
-                    messageElement.textContent = 'Login successful!';
-
-                    // Redirect to the home page after a brief delay
-                    setTimeout(() => {
-                        window.location.href = 'home.html';
-                    }, 2000);
-                } else {
-                    messageElement.classList.add('alert-danger');
-                    messageElement.textContent = 'Incorrect password.';
-                }
-            } else {
+    
+    <!-- Firebase SDK and other scripts -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCU500X_Ongrwi3-ovg2acbKrDUUOt0MMw",
+            authDomain: "practical-11156.firebaseapp.com",
+            databaseURL: "https://practical-11156-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "practical-11156",
+            storageBucket: "practical-11156.appspot.com",
+            messagingSenderId: "1008221940017",
+            appId: "1:1008221940017:web:9cf0304da27263110de810"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
+    
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+    
+            const email = event.target.email.value;
+            const password = event.target.password.value;
+    
+            const messageElement = document.getElementById('loginMessage');
+            messageElement.classList.remove('alert-success', 'alert-danger');
+            messageElement.textContent = '';
+    
+            try {
+                // Sign in with email and password
+                await signInWithEmailAndPassword(auth, email, password);
+                messageElement.classList.add('alert-success');
+                messageElement.textContent = 'Login successful!';
+                
+                // Redirect to home page
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 2000);
+            } catch (error) {
+                console.error("Login error:", error);
                 messageElement.classList.add('alert-danger');
-                messageElement.textContent = 'No account found for this username.';
+                messageElement.textContent = 'Login failed: ' + error.message;
             }
-        } catch (error) {
-            messageElement.classList.add('alert-danger');
-            messageElement.textContent = 'Login failed: ' + error.message;
-        }
-    });
-</script>
-
-
+        });
+    
+        // Handle Google Sign-In
+        document.getElementById('googleSignIn').addEventListener('click', async () => {
+            const provider = new GoogleAuthProvider();
+            const messageElement = document.getElementById('loginMessage');
+            messageElement.classList.remove('alert-success', 'alert-danger');
+            messageElement.textContent = '';
+    
+            try {
+                // Sign in with Google
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+    
+                // Optionally, save user data to Firebase Realtime Database
+                const userRef = ref(database, 'Accounts/' + user.uid);
+                const snapshot = await get(userRef);
+    
+                if (!snapshot.exists()) {
+                    await set(userRef, {
+                        fullname: user.displayName || '',
+                        email: user.email
+                    });
+                }
+    
+                messageElement.classList.add('alert-success');
+                messageElement.textContent = 'Google Sign-In successful!';
+                
+                // Redirect to home page
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 2000);
+            } catch (error) {
+                console.error("Google Sign-In error:", error);
+                messageElement.classList.add('alert-danger');
+                messageElement.textContent = 'Google Sign-In failed: ' + error.message;
+            }
+        });
+    </script>
+    
 
 
     <!-- Bootstrap and theme toggle scripts -->
