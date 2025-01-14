@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
     <title>Register | Ecovate</title>
-    
+   
+
+
 </head>
 <body>
     
@@ -115,27 +117,33 @@
             }
     
             try {
-                // Create user with email and password
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                const user = userCredential.user;
-    
-                // Save additional user data to the database
-                await set(ref(database, 'Accounts/' + user.uid), {
-                    fullname: full_name,
-                    age: Number(age),
-                    email: user.email
-                });
-    
-                messageElement.classList.add('alert-success');
-                messageElement.textContent = 'Registration successful!';
-                setTimeout(() => {
-                    window.location.href = 'index.html';
-                }, 2000);
-            } catch (error) {
-                console.error("Error during registration:", error);
-                messageElement.classList.add('alert-danger');
-                messageElement.textContent = 'Registration failed: ' + error.message;
-            }
+    // Create user with email and password
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    // Save user data to the database
+    await set(ref(database, 'Accounts/' + user.uid), {
+        fullname: full_name,
+        age: Number(age),
+        email: user.email
+    });
+
+    // Display success message
+    messageElement.classList.add('alert-success');
+    messageElement.textContent = 'Successfully Registered';
+
+    // Log out the user to avoid immediate redirection
+    await auth.signOut();
+
+    // Redirect to login page
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 2000);
+} catch (error) {
+    console.error('Error during registration:', error);
+    messageElement.classList.add('alert-danger');
+    messageElement.textContent = 'Registration failed: ' + error.message;
+}
         });
     
         // Handle Google Sign-In

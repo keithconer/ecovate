@@ -507,12 +507,11 @@
 
 
 
-
-
 <!-- Firebase SDK and other scripts -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
     import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
     // Firebase configuration
     const firebaseConfig = {
@@ -528,6 +527,28 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
+    const auth = getAuth();
+
+    // Check authentication state on page load
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            // If the user is not authenticated, redirect to the login page
+            window.location.href = 'index.html';
+        } else {
+            console.log('Authenticated user:', user);
+        }
+    });
+
+    // Logout functionality
+    document.getElementById('logoutButton').addEventListener('click', async () => {
+        try {
+            await signOut(auth);
+            alert('You have been logged out!');
+            window.location.href = 'index.html';
+        } catch (error) {
+            console.error('Error during logout:', error);
+        }
+    });
 
     // Handle the Confirm button click for Join Community Modal
     document.getElementById('confirmJoin').addEventListener('click', function () {
@@ -540,7 +561,7 @@
             // Load the reCAPTCHA widget inside the modal
             loadCaptcha();
         } else {
-            form.reportValidity(); // Show validation messages if form is not valid
+            form.reportValidity(); // Show validation messages if the form is not valid
         }
     });
 
@@ -582,8 +603,6 @@
         });
     }
 </script>
-
-
 
 
 
