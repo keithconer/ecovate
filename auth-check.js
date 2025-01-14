@@ -18,14 +18,27 @@ const app = initializeApp(firebaseConfig);
 // Initialize Auth
 const auth = getAuth(app);
 
-// Check if user is authenticated
-onAuthStateChanged(auth, (user) => {
+// Force redirection immediately for unauthorized users
+function checkAuth() {
     const currentPage = window.location.pathname;
+    const user = auth.currentUser; // Get current user directly
 
-    // Prevent redirection loop if user is on the login page
+    // Log the current page for debugging
+    console.log("Current page:", currentPage);
+
+    // Redirect unauthenticated users to login page, unless they are already on it
     if (!user && currentPage !== '/index.html') {
-        window.location.href = '/index.html'; // Redirect to login
+        window.location.href = '/index.html'; // Redirect to login page
     } else if (user && currentPage === '/index.html') {
-        window.location.href = '/home.html'; // Redirect authenticated users to home
+        window.location.href = '/home.html'; // Redirect logged-in users to home
     }
+}
+
+// Call the function to check authentication
+checkAuth();
+
+// Add listener in case auth state changes during page load
+onAuthStateChanged(auth, (user) => {
+    console.log("User state changed:", user ? "Authenticated" : "Not authenticated");
+    checkAuth();  // Recheck after auth state change
 });
