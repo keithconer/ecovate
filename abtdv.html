@@ -24,7 +24,7 @@
 
 
     <title>Ecovate</title>
-    <script type="module" src="./auth-check.js"></script>
+
 
 </head>
 <body>
@@ -128,7 +128,41 @@
 
 
 
+<!-- Firebase SDK and other scripts -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
 
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCU500X_Ongrwi3-ovg2acbKrDUUOt0MMw",
+        authDomain: "practical-11156.firebaseapp.com",
+        databaseURL: "https://practical-11156-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "practical-11156",
+        storageBucket: "practical-11156.appspot.com",
+        messagingSenderId: "1008221940017",
+        appId: "1:1008221940017:web:9cf0304da27263110de810"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
+    // Check if user is authenticated
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            // User is not logged in, redirect to login page
+            window.location.href = 'index.html';
+        } else {
+            // User is authenticated, you can access user information here
+            console.log("User is authenticated: ", user);
+            // You can also fetch and display user-specific data here
+        }
+    });
+
+</script>
 
 
 

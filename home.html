@@ -28,7 +28,7 @@
 
 
     <title>Ecovate</title>
-    <script type="module" src="./auth-check.js"></script>
+
 
    
   
@@ -514,6 +514,7 @@
 <!-- Firebase SDK and other scripts -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
     import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
 
     // Firebase configuration
@@ -530,8 +531,19 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
+    const auth = getAuth(app);
    
-
+// Check if user is authenticated
+onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            // User is not logged in, redirect to login page
+            window.location.href = 'index.html';
+        } else {
+            // User is authenticated, you can access user information here
+            console.log("User is authenticated: ", user);
+            // You can also fetch and display user-specific data here
+        }
+    });
    
 
     // Handle the Confirm button click for Join Community Modal
