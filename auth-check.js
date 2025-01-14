@@ -18,30 +18,39 @@ const app = initializeApp(firebaseConfig);
 // Initialize Auth
 const auth = getAuth(app);
 
-// Force redirection immediately for unauthorized users
-function checkAuth() {
+// Function to handle authentication state changes and redirection
+function handleAuthStateChange(user) {
     const currentPage = window.location.pathname;
-    const user = auth.currentUser; // Get current user directly
 
     // Log the current page for debugging
     console.log("Current page:", currentPage);
+    console.log("User:", user);
 
-    // Redirect unauthenticated users to login page, unless they are already on it
+    // Check if the search bar is bypassed
+    const searchParams = new URLSearchParams(window.location.search);
+    const bypassSearch = searchParams.get('bypass');
+
+    if (bypassSearch === 'true') {
+        console.log("Bypass search detected.");
+        return; // Allow access if bypassed through search
+    }
+
     if (!user && currentPage !== '/index.html') {
-        window.location.href = '/index.html'; // Redirect to login page
+        window.location.href = '/index.html'; // Redirect to login page if not authenticated
     } else if (user && currentPage === '/index.html') {
-        window.location.href = '/home.html'; // Redirect logged-in users to home
-    } else if (user && currentPage !== '/home.html') {
-        // Allow navigation to other pages if the user is authenticated and not on home page
-        console.log("User is authenticated and on another page.");
+        window.location.href = '/home.html'; // Redirect logged-in users to home page
+    } else if (user) {
+        console.log("User is authenticated and on a valid page.");
     }
 }
 
-// Call the function to check authentication
-checkAuth();
-
-// Add listener in case auth state changes during page load
+// Add listener to handle changes in authentication state
 onAuthStateChanged(auth, (user) => {
     console.log("User state changed:", user ? "Authenticated" : "Not authenticated");
-    checkAuth();  // Recheck after auth state change
+    handleAuthStateChange(user);  // Handle redirection based on auth state
+});
+
+// Initial check on page load
+document.addEventListener('DOMContentLoaded', () => {
+    handleAuthStateChange(auth.currentUser);
 });
