@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -18,27 +18,45 @@ const app = initializeApp(firebaseConfig);
 // Initialize Auth
 const auth = getAuth(app);
 
-// Force redirection immediately for unauthorized users
-function checkAuth() {
+// Function to handle authentication state and redirection
+function handleAuthStateChange(user) {
     const currentPage = window.location.pathname;
-    const user = auth.currentUser; // Get current user directly
 
     // Log the current page for debugging
     console.log("Current page:", currentPage);
 
-    // Redirect unauthenticated users to login page, unless they are already on it
     if (!user && currentPage !== '/index.html') {
         window.location.href = '/index.html'; // Redirect to login page
-    } else if (user && currentPage === '/index.html') {
-        window.location.href = '/home.html'; // Redirect logged-in users to home
+    } else if (user) {
+        // Set session cookie
+        user.getIdToken().then(token => {
+            document.cookie = `session=${token}; path=/; secure; httponly`;
+        });
+
+        // Redirect to home if on login page
+        if (currentPage === '/index.html') {
+            window.location.href = '/home.html'; // Redirect logged-in users to home
+        }
     }
 }
 
-// Call the function to check authentication
-checkAuth();
-
-// Add listener in case auth state changes during page load
+// Add listener to handle changes in authentication state
 onAuthStateChanged(auth, (user) => {
     console.log("User state changed:", user ? "Authenticated" : "Not authenticated");
-    checkAuth();  // Recheck after auth state change
+    handleAuthStateChange(user);  // Handle redirection based on auth state
 });
+
+// Initial check on page load
+onAuthStateChanged(auth, handleAuthStateChange);
+
+// Function to handle login
+function login(email, password) {
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            handleAuthStateChange(user);
+        })
+        .catch((error) => {
+            console.error("Error logging in:", error);
+        });
+}
