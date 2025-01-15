@@ -98,8 +98,7 @@
 
 
 
-    
-<!-- Join Community Modal -->
+    <!-- Join Community Modal -->
 <div class="modal fade" id="joinCommunityModal" tabindex="-1" aria-labelledby="joinCommunityModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -191,6 +190,8 @@
         </div>
     </div>
 </div>
+
+
 
 
     
@@ -574,58 +575,49 @@
     });
 
 
-    // Handle the Confirm button click for Join Community Modal
-    document.getElementById('confirmJoin').addEventListener('click', function () {
-        const form = document.getElementById('joinCommunityForm');
-        if (form.checkValidity()) {
-            // Show the reCAPTCHA modal if the form is valid
-            const captchaModal = new bootstrap.Modal(document.getElementById('captchaModal'));
-            captchaModal.show();
 
-            // Load the reCAPTCHA widget inside the modal
-            loadCaptcha();
-        } else {
-            form.reportValidity(); // Show validation messages if form is not valid
-        }
-    });
 
-    // Initialize reCAPTCHA widget (you can load it dynamically here if needed)
+
+
     function loadCaptcha() {
-        grecaptcha.render('recaptcha-container', {
-            sitekey: '6LeoL7UqAAAAAIKNqKY0-YnfhMDd2Wm7CjBddz-F', // Your reCAPTCHA site key
-            callback: verifyCaptcha // Function triggered after successful CAPTCHA
-        });
+    grecaptcha.render('recaptcha-container', {
+        sitekey: '6LeoL7UqAAAAAIKNqKY0-YnfhMDd2Wm7CjBddz-F', // Your reCAPTCHA site key
+        callback: verifyCaptcha // Function triggered after successful CAPTCHA
+    });
+}
+// Handle the Confirm button click for Join Community Modal
+document.getElementById('confirmJoin').addEventListener('click', function () {
+    // Validate the form fields
+    const form = document.getElementById('joinCommunityForm');
+    if (form.checkValidity()) {
+        // Show the reCAPTCHA modal if the form is valid
+        const captchaModal = new bootstrap.Modal(document.getElementById('captchaModal'));
+        captchaModal.show();
+
+        // Load the reCAPTCHA widget inside the modal
+        loadCaptcha();
+    } else {
+        form.reportValidity(); // Show validation messages if form is not valid
     }
+});
 
-    // Handle the successful verification of reCAPTCHA
-    function verifyCaptcha(token) {
-        // Collect form data after successful CAPTCHA verification
-        const name = document.getElementById('name').value;
-        const purpose = document.getElementById('purpose').value;
-        const focus = document.getElementById('focus').value;
-        const terms = document.getElementById('terms').checked;
+// Handle the successful verification of reCAPTCHA
+function verifyCaptcha(token) {
+    // Simulate the backend verification delay and show the Welcome Modal after successful verification
+    setTimeout(() => {
+        // Close the CAPTCHA modal after verification
+        const captchaModal = bootstrap.Modal.getInstance(document.getElementById('captchaModal'));
+        captchaModal.hide();
 
-        // Save data to Firebase Realtime Database
-        const userId = new Date().getTime();  // Unique user ID based on timestamp
-        set(ref(database, 'communityMembers/' + userId), {
-            name: name,
-            purpose: purpose,
-            focusArea: focus,
-            termsAccepted: terms,
-            timestamp: new Date().toISOString()  // Store the current timestamp
-        }).then(() => {
-            // After data is successfully saved, close CAPTCHA modal and show the welcome modal
-            const captchaModal = bootstrap.Modal.getInstance(document.getElementById('captchaModal'));
-            captchaModal.hide();
+        // Show the Welcome Modal
+        const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+        welcomeModal.show();
+    }, 1000); // Simulate a delay for backend verification
+}
 
-            // Show the Welcome Modal
-            const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
-            welcomeModal.show();
-        }).catch((error) => {
-            console.error('Error saving data to Firebase:', error);
-            alert('There was an error while saving your data. Please try again.');
-        });
-    }
+
+   
+
 </script>
 
 
