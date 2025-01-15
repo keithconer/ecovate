@@ -444,7 +444,7 @@ body.bg-dark .login-btn:hover {
 /* Button styles */
 .btn-primary, .btn-primary2, .btn-primary4, .btn-primary5 {
     border-radius: 0.5rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.3rem;
     font-size: 1rem;
 }
 
@@ -1084,8 +1084,9 @@ canvas {
 
 
 .btn-primary4:hover{
-  background-color: transparent;
-  border: 1px solid #ffffff;
+  background-color:transparent;
+  border: 1px solid white;
+  color:white;
 
 }
 
@@ -1100,7 +1101,7 @@ canvas {
 
 
 .btn-primary5{
-    background-color:#f39c12;
+    background-color:#c87b0e;
     color: white;
     border-radius: 0.25rem;
     padding: 0.5rem 1.25rem;

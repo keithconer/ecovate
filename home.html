@@ -35,7 +35,7 @@
 
 </head>
 <body>
-    
+  
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="home.html">
@@ -58,6 +58,7 @@
                     <li class="nav-item"><a class="nav-link" href="abtdv.html">About Devs</a></li>
                     <li class="nav-item"><a class="nav-link highlighted" href="ft.html">Features</a></li>
                     <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+      
                 </ul>
                 <button class="btn btn-dark ms-3 d-none d-lg-block" type="button" id="themeToggle" aria-label="Toggle theme">
                     <span id="sunEmoji" class="d-none">🌞</span>
@@ -511,11 +512,10 @@
 
 
 
-<!-- Firebase SDK and other scripts -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
     // Firebase configuration
     const firebaseConfig = {
@@ -531,20 +531,48 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const database = getDatabase(app);
-    const auth = getAuth(app);
-   
-// Check if user is authenticated
-onAuthStateChanged(auth, (user) => {
-        if (!user) {
-            // User is not logged in, redirect to login page
-            window.location.href = 'index.html';
+    const auth = getAuth();
+
+    // Variables for inactivity timer
+    let inactivityTimeout;
+    const inactivityLimit = 1 * 60 * 1000; // Set timeout limit (5 minutes = 300,000 ms)
+
+    // Function to reset the inactivity timer
+    function resetInactivityTimer() {
+        clearTimeout(inactivityTimeout); // Clear any existing timer
+        inactivityTimeout = setTimeout(() => {
+            // Sign out the user after inactivity
+            signOut(auth)
+                .then(() => {
+                    console.log("User signed out due to inactivity.");
+                    alert("You have been signed out due to inactivity.");
+                    window.location.href = "index.html"; // Redirect to login page
+                })
+                .catch((error) => {
+                    console.error("Error signing out:", error);
+                });
+        }, inactivityLimit); // Restart timer
+    }
+
+    // Monitor user activity
+    function monitorActivity() {
+        window.addEventListener("mousemove", resetInactivityTimer); // Mouse movement
+        window.addEventListener("keydown", resetInactivityTimer); // Key press
+        window.addEventListener("touchstart", resetInactivityTimer); // Touch screen
+    }
+
+    // Check if the user is authenticated and initialize monitoring
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            console.log("User is logged in:", user.email);
+            resetInactivityTimer(); // Start the timer on page load
+            monitorActivity(); // Start monitoring activity
         } else {
-            // User is authenticated, you can access user information here
-            console.log("User is authenticated: ", user);
-            // You can also fetch and display user-specific data here
+            console.log("No user is logged in.");
+            window.location.href = "index.html"; // Redirect to login page if not logged in
         }
     });
-   
+
 
     // Handle the Confirm button click for Join Community Modal
     document.getElementById('confirmJoin').addEventListener('click', function () {

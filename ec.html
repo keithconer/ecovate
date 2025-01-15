@@ -213,10 +213,11 @@
 
 
 
-  <script type="module">
+
+<script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 
     // Firebase configuration
     const firebaseConfig = {
@@ -231,22 +232,52 @@
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
     const database = getDatabase(app);
+    const auth = getAuth();
 
-    // Check if user is authenticated
+    // Variables for inactivity timer
+    let inactivityTimeout;
+    const inactivityLimit = 1 * 60 * 1000; // Set timeout limit (5 minutes = 300,000 ms)
+
+    // Function to reset the inactivity timer
+    function resetInactivityTimer() {
+        clearTimeout(inactivityTimeout); // Clear any existing timer
+        inactivityTimeout = setTimeout(() => {
+            // Sign out the user after inactivity
+            signOut(auth)
+                .then(() => {
+                    console.log("User signed out due to inactivity.");
+                    alert("You have been signed out due to inactivity.");
+                    window.location.href = "index.html"; // Redirect to login page
+                })
+                .catch((error) => {
+                    console.error("Error signing out:", error);
+                });
+        }, inactivityLimit); // Restart timer
+    }
+
+    // Monitor user activity
+    function monitorActivity() {
+        window.addEventListener("mousemove", resetInactivityTimer); // Mouse movement
+        window.addEventListener("keydown", resetInactivityTimer); // Key press
+        window.addEventListener("touchstart", resetInactivityTimer); // Touch screen
+    }
+
+    // Check if the user is authenticated and initialize monitoring
     onAuthStateChanged(auth, (user) => {
-        if (!user) {
-            // User is not logged in, redirect to login page
-            window.location.href = 'index.html';
+        if (user) {
+            console.log("User is logged in:", user.email);
+            resetInactivityTimer(); // Start the timer on page load
+            monitorActivity(); // Start monitoring activity
         } else {
-            // User is authenticated, you can access user information here
-            console.log("User is authenticated: ", user);
-            // You can also fetch and display user-specific data here
+            console.log("No user is logged in.");
+            window.location.href = "index.html"; // Redirect to login page if not logged in
         }
     });
 
 </script>
+
+
 
     <!-- Bootstrap JS and dependencies -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
